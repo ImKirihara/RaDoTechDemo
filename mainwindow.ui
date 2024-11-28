@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Menu">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -123,6 +123,9 @@
        </item>
        <item row="10" column="2">
         <widget class="QLineEdit" name="confirmPasswordText">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
          <property name="placeholderText">
           <string>12345</string>
          </property>
@@ -225,6 +228,9 @@
        </item>
        <item row="9" column="2">
         <widget class="QLineEdit" name="passwordText">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
          <property name="placeholderText">
           <string>12345</string>
          </property>
@@ -315,6 +321,9 @@
        </item>
        <item>
         <widget class="QLineEdit" name="passwordLoginText">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
          <property name="placeholderText">
           <string>Password</string>
          </property>
