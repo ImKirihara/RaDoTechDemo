@@ -5,6 +5,7 @@
 #include <QList>
 #include <QMessageBox>
 #include "User.h"
+#include "appwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +24,8 @@ public:
 private:
     Ui::MainWindow *ui;
     QList<User*> profiles;
+
+    AppWidget *appWidget;
 
 public slots:
     bool createUser();

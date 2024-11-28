@@ -10,15 +10,18 @@ CONFIG += c++11
 
 SOURCES += \
     User.cpp \
+    appwidget.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Data.h \
     User.h \
+    appwidget.h \
     mainwindow.h
 
 FORMS += \
+    appwidget.ui \
     mainwindow.ui
 
 # Default rules for deployment.

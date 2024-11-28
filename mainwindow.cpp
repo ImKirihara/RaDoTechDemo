@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    // Create the AppWidget instance (the new home screen) - Nathan
+        appWidget = new AppWidget(this);
+        ui->StackedWidget->addWidget(appWidget);
 
     // Tester Login Profile - Mel
     profiles.append(new User("Login", "Tester", "Female", "Canada", "tester@gmail.com", "16131234567", "password", QDate::currentDate(), 70, 150));
@@ -92,8 +95,8 @@ bool MainWindow::createUser(){
     User* u = new User(f, l, g, c, e, p, pass, b, w, h);
     profiles.append(u);
 
-    changePage(ui->App);
-    ui->welcomeLbl->setText("Welcome " + u->getName());
+    changePage(appWidget);
+//    ui->welcomeLbl->setText("Welcome " + u->getName());
 
     return true;
 }
@@ -106,8 +109,8 @@ bool MainWindow::loginUser(){
     for(int i = 0; i < profiles.size(); i++){
         if(enteredEmail == profiles[i]->getEmail()){
             if(enteredPassword == profiles[i]->getPassword()){
-                changePage(ui->App);
-                ui->welcomeLbl->setText("Welcome " + profiles[i]->getName());
+                changePage(appWidget);
+//                ui->welcomeLbl->setText("Welcome " + profiles[i]->getName());
                 return true;
             }else{
                 QMessageBox::warning(this, "Invalid Password", "Incorrect Password");
