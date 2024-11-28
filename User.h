@@ -32,6 +32,8 @@ public:
     // getter functions
     QString getName();
     QString getGender();
+    QString getEmail();
+    QString getPassword();
     int getWeight();
     int getHeight();
     Data getHistory(int i);

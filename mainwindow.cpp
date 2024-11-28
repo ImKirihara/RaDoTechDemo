@@ -7,6 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Tester Login Profile - Mel
+    profiles.append(new User("Login", "Tester", "Female", "Canada", "tester@gmail.com", "16131234567", "password", QDate::currentDate(), 70, 150));
+
+    // Main Menu Screen - Mel
     ui->StackedWidget->setCurrentWidget(ui->Menu);
 
     // Profile Creation Buttons - Mel
@@ -14,6 +18,12 @@ MainWindow::MainWindow(QWidget *parent)
         changePage(ui->CreateProfile);
     });
     connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(createUser()));
+
+    // Profile Login Buttons - Mel
+    connect(ui->loginButton, &QPushButton::clicked, this, [this](){
+        changePage(ui->loginProfile);
+    });
+    connect(ui->enterButton, SIGNAL(clicked()), this, SLOT(loginUser()));
 }
 
 MainWindow::~MainWindow()
@@ -21,11 +31,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-// Profile Creation Functions - Mel
+// Page Change Function - Mel
 void MainWindow::changePage(QWidget *page){
     ui->StackedWidget->setCurrentWidget(page);
 }
 
+// Page To Detect Profile Creation Radio Button Selection - Mel
 QString MainWindow::getGender(){
     QString g;
     if(ui->femaleButton->isChecked()){
@@ -38,6 +49,7 @@ QString MainWindow::getGender(){
     return g;
 }
 
+// Profile Creation Function - Mel
 bool MainWindow::createUser(){
     QString f, l, g, c, e, p, pass, cp;
     QDate b;
@@ -67,15 +79,43 @@ bool MainWindow::createUser(){
             return false;
         }
 
+        for(int i = 0; i < profiles.size(); i++){
+            if(e == profiles[i]->getEmail()){
+                QMessageBox::warning(this, "Invalid Email", "Email address already used.");
+                return false;
+            }
+        }
+
         validInput = true;
     }
 
     User* u = new User(f, l, g, c, e, p, pass, b, w, h);
     profiles.append(u);
 
-    ui->StackedWidget->setCurrentWidget(ui->App);
+    changePage(ui->App);
     ui->welcomeLbl->setText("Welcome " + u->getName());
 
     return true;
+}
+
+// Profile Login Function - Mel
+bool MainWindow::loginUser(){
+    QString enteredEmail = ui->emailLoginText->text();
+    QString enteredPassword = ui->passwordLoginText->text();
+
+    for(int i = 0; i < profiles.size(); i++){
+        if(enteredEmail == profiles[i]->getEmail()){
+            if(enteredPassword == profiles[i]->getPassword()){
+                changePage(ui->App);
+                ui->welcomeLbl->setText("Welcome " + profiles[i]->getName());
+                return true;
+            }else{
+                QMessageBox::warning(this, "Invalid Password", "Incorrect Password");
+                return false;
+            }
+        }
+    }
+    QMessageBox::warning(this, "Invalid Email", "Incorrect Email or Password");
+    return false;
 }
 

@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Menu">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -45,7 +45,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="enterButton">
+        <widget class="QPushButton" name="loginButton">
          <property name="text">
           <string>Login</string>
          </property>
@@ -307,14 +307,14 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="emailLoginText">
          <property name="placeholderText">
           <string>Login (email)</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2">
+        <widget class="QLineEdit" name="passwordLoginText">
          <property name="placeholderText">
           <string>Password</string>
          </property>
@@ -322,7 +322,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="enterButton">
       <property name="geometry">
        <rect>
         <x>360</x>
@@ -332,7 +332,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Start</string>
+       <string>Enter</string>
       </property>
      </widget>
     </widget>

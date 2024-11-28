@@ -26,6 +26,7 @@ private:
 
 public slots:
     bool createUser();
+    bool loginUser();
     void changePage(QWidget *page);
 
 };

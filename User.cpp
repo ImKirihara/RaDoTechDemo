@@ -25,6 +25,14 @@ QString User::getGender(){
     return gender;
 }
 
+QString User::getEmail(){
+    return email;
+}
+
+QString User::getPassword(){
+    return password;
+}
+
 int User::getWeight(){
     return weight;
 }
