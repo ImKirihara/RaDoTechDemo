@@ -25,8 +25,13 @@
      <height>601</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QStackedWidget{
+	background-color:rgb(94, 92, 100)
+}</string>
+   </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="homePage">
     <widget class="QLabel" name="label">
@@ -58,6 +63,21 @@
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="page">
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>270</y>
+       <width>101</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>NEW PAGE</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QWidget" name="sideBar" native="true">
    <property name="geometry">
@@ -69,7 +89,25 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color:rgb(46, 46, 46)</string>
+    <string notr="true">QWidget {
+    background-color: rgb(255,255,255);
+border: 2px solid rgb(220, 20, 60); 
+}
+
+QPushButton {
+   background-color: rgb(0, 128, 0); 
+    color: white;                    
+    border: 2px solid rgb(220, 20, 60); 
+    border-radius: 10px;           
+    font-weight: bold;               
+    font-family: &quot;Comic Sans MS&quot;, cursive; 
+    padding: 5px;                   
+}
+
+QPushButton:hover {
+    background-color: rgb(34, 139, 34); 
+    border-color: rgb(255, 69, 0);     
+}</string>
    </property>
    <layout class="QVBoxLayout" name="sidebarLayout">
     <property name="leftMargin">
@@ -118,9 +156,9 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="newPageButton">
       <property name="text">
-       <string>PushButton</string>
+       <string>NEW PAGE</string>
       </property>
       <property name="id" stdset="0">
        <number>2</number>
@@ -139,6 +177,13 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="signOut">
+      <property name="text">
+       <string>Sign Out</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
