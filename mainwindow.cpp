@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->StackedWidget->addWidget(appWidget);
 
     // Tester Login Profile - Mel
-    profiles.append(new User("Login", "Tester", "Female", "Canada", "tester@gmail.com", "16131234567", "password", QDate::currentDate(), 70, 150));
+    profiles.append(new User("Login", "Tester", "Female", "Canada", "t", "16131234567", "t", QDate::currentDate(), 70, 150));
 
     // Main Menu Screen - Mel
     ui->StackedWidget->setCurrentWidget(ui->Menu);
