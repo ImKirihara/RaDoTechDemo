@@ -22,24 +22,42 @@
      <x>180</x>
      <y>0</y>
      <width>621</width>
-     <height>561</height>
+     <height>601</height>
     </rect>
    </property>
-   <widget class="QWidget" name="page"/>
-   <widget class="QWidget" name="page_2"/>
-  </widget>
-  <widget class="QPushButton" name="openSidebar">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>41</width>
-     <height>41</height>
-    </rect>
+   <property name="currentIndex">
+    <number>0</number>
    </property>
-   <property name="text">
-    <string>SB</string>
-   </property>
+   <widget class="QWidget" name="homePage">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>270</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Home</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="historyPage">
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>270</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>History</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QWidget" name="sideBar" native="true">
    <property name="geometry">
@@ -51,21 +69,68 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(46, 46, 46)</string>
+    <string notr="true">background-color:rgb(46, 46, 46)</string>
    </property>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>161</width>
-      <height>25</height>
-     </rect>
+   <layout class="QVBoxLayout" name="sidebarLayout">
+    <property name="leftMargin">
+     <number>20</number>
     </property>
-    <property name="text">
-     <string>PushButton</string>
+    <property name="rightMargin">
+     <number>20</number>
     </property>
-   </widget>
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="homeButton">
+      <property name="text">
+       <string>Home</string>
+      </property>
+      <property name="id" stdset="0">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="historyButton">
+      <property name="text">
+       <string>History</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="id" stdset="0">
+       <number>1</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

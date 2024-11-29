@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QButtonGroup>
+#include <QStackedWidget>
+#include <QVBoxLayout>
 
 namespace Ui {
 class AppWidget;
@@ -16,12 +19,16 @@ public:
     explicit AppWidget(QWidget *parent = nullptr);
     ~AppWidget();
 private slots:
-    void toggleSideBar();
+    void switchPage(int pageId);
+
 private:
     Ui::AppWidget *ui;
 
+    QStackedWidget *stackedWidget;
     QWidget *sideBarWidget;
-    QPushButton *openSideBarButton;
+    QButtonGroup *sideBarButtons;
+    void setupSideBarButtons();
+
 };
 
 #endif // APPWIDGET_H

@@ -1,5 +1,6 @@
 #include "appwidget.h"
 #include "ui_appwidget.h"
+#include <QtDebug>
 
 AppWidget::AppWidget(QWidget *parent) :
     QWidget(parent),
@@ -7,13 +8,10 @@ AppWidget::AppWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    stackedWidget = ui->stackedWidget;
     sideBarWidget = ui->sideBar;
-    openSideBarButton = ui->openSidebar;
 
-    // Initially hide the sidebar
-    sideBarWidget->setVisible(false);
-
-    connect(openSideBarButton, &QPushButton::clicked, this, &AppWidget::toggleSideBar);
+    setupSideBarButtons();
 }
 
 AppWidget::~AppWidget()
@@ -21,6 +19,24 @@ AppWidget::~AppWidget()
     delete ui;
 }
 
-void AppWidget::toggleSideBar(){
-    sideBarWidget->setVisible(!sideBarWidget->isVisible());
+void AppWidget::setupSideBarButtons()
+{
+    for(QObject *obj : sideBarWidget->children()){
+        QPushButton* button = qobject_cast<QPushButton*>(obj);
+        if(button){
+            QVariant id = button->property("id");
+            if(id.isValid() && id.canConvert<int>()){
+                int pageId = id.toInt();
+
+                connect(button, &QPushButton::clicked, this, [this, pageId](){
+                    switchPage(pageId);
+                });
+            }
+        }
+    }
+}
+
+void AppWidget::switchPage(int pageId)
+{
+    stackedWidget->setCurrentIndex(pageId);  // Switch to the page by index
 }
