@@ -31,6 +31,7 @@ public slots:
     bool createUser();
     bool loginUser();
     void changePage(QWidget *page);
+    void signOut();
 
 };
 #endif // MAINWINDOW_H

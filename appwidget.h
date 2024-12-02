@@ -6,6 +6,7 @@
 #include <QButtonGroup>
 #include <QStackedWidget>
 #include <QVBoxLayout>
+#include "User.h"
 
 namespace Ui {
 class AppWidget;
@@ -18,11 +19,21 @@ class AppWidget : public QWidget
 public:
     explicit AppWidget(QWidget *parent = nullptr);
     ~AppWidget();
+
+    void setActiveUser(User* user);
 private slots:
     void switchPage(int pageId);
+    void viewScanner();
+    bool completeScan();
+    bool doneScan();
+
+signals:
+    void signOutRequest();
 
 private:
     Ui::AppWidget *ui;
+
+    User* activeUser = nullptr;
 
     QStackedWidget *stackedWidget;
     QWidget *sideBarWidget;

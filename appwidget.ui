@@ -31,14 +31,14 @@
 }</string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="homePage">
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>270</y>
+       <x>30</x>
+       <y>20</y>
        <width>62</width>
        <height>17</height>
       </rect>
@@ -46,6 +46,217 @@
      <property name="text">
       <string>Home</string>
      </property>
+    </widget>
+    <widget class="QPushButton" name="startScanButton">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>320</y>
+       <width>111</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start Scan</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="scanBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>80</y>
+       <width>441</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Scan</string>
+     </property>
+     <widget class="QRadioButton" name="H1">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>H1</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="H2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>H2</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="H3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>H3</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="H4">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>H4</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="H5">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>70</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>H5</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="H6">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>100</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>H6</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="F1">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>40</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>F1</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="F2">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>70</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>F2</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="F3">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>100</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>F3</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="F4">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>40</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>F4</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="F5">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>70</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>F5</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="F6">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>100</y>
+        <width>106</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>F6</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="scanButton">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>150</y>
+        <width>83</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Scan</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="doneButton">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>180</y>
+        <width>83</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Done</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="historyPage">
@@ -179,7 +390,7 @@ QPushButton:hover {
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="signOut">
+     <widget class="QPushButton" name="signOutButton">
       <property name="text">
        <string>Sign Out</string>
       </property>
