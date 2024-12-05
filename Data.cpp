@@ -13,10 +13,16 @@ Data::Data(){
     f4 = -1;
     f5 = -1;
     f6 = -1;
+
+    currentDateTime = QDateTime::currentDateTime();
 }
 
 Data::~Data(){
 
+}
+
+QDateTime Data::getCurrentDateTime() const {
+    return currentDateTime;
 }
 
 int Data::get(QString part){

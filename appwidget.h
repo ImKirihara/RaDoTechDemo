@@ -6,6 +6,8 @@
 #include <QButtonGroup>
 #include <QStackedWidget>
 #include <QVBoxLayout>
+#include <QDateTime>
+#include <QListWidget>
 #include "User.h"
 
 namespace Ui {
@@ -23,6 +25,7 @@ public:
     void setActiveUser(User* user);
 private slots:
     void switchPage(int pageId);
+    void setCurrentViewingData();
     void viewScanner();
     bool completeScan();
     bool doneScan();
@@ -34,11 +37,14 @@ private:
     Ui::AppWidget *ui;
 
     User* activeUser = nullptr;
+    Data* currentViewingData;
 
     QStackedWidget *stackedWidget;
     QWidget *sideBarWidget;
     QButtonGroup *sideBarButtons;
+    QListWidget *historyWidget;
     void setupSideBarButtons();
+    void displayData();
 
 };
 

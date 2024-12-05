@@ -10,7 +10,6 @@ CONFIG += c++11
 
 SOURCES += \
     Data.cpp \
-    History.cpp \
     User.cpp \
     appwidget.cpp \
     main.cpp \
@@ -18,7 +17,6 @@ SOURCES += \
 
 HEADERS += \
     Data.h \
-    History.h \
     User.h \
     appwidget.h \
     mainwindow.h

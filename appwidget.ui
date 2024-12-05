@@ -27,33 +27,106 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QStackedWidget{
-	background-color:rgb(94, 92, 100)
+	background-color:rgb(46, 46, 46);
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="homePage">
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>20</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Home</string>
-     </property>
-    </widget>
+    <property name="styleSheet">
+     <string notr="true">/* GroupBox */
+QGroupBox {
+    background: transparent; /* Transparent background */
+    border: 2px solid rgba(255, 120, 0, 255); /* Border to match the sidebar */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding around content */
+    margin: 10px; /* Margin to separate from other content */
+    font-size: 18px;
+    color: white; /* White text color for visibility */
+}
+
+/* GroupBox title */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding-left: 10px;
+    padding-top: 5px;
+    color: white; /* Title color */
+}
+
+/* Radio Buttons inside GroupBox */
+QRadioButton {
+    background: transparent; /* Transparent background */
+    color: white;             /* White text for visibility */
+    border: none;             /* No border by default */
+    font-size: 16px;          /* Adjust font size */
+    padding: 5px;             /* Add padding around text */
+}
+
+/* Hover effect for Radio Buttons */
+QRadioButton:hover {
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Light border on hover */
+    border-radius: 4px;                          /* Rounded corners */
+}
+
+/* When Radio Button is selected */
+QRadioButton:checked {
+    color: #ff7f00; /* Change text color when checked */
+}
+
+/* Radio Button indicator (round) */
+QRadioButton::indicator {
+    border: 2px solid #ff7f00; /* Orange border */
+    border-radius: 10px;        /* Round border */
+    width: 16px;                /* Size of the circle */
+    height: 16px;               /* Size of the circle */
+    background-color: transparent; /* Transparent background */
+}
+
+/* When Radio Button is checked, change the indicator */
+QRadioButton::indicator:checked {
+    background-color: #ff7f00;  /* Orange when selected */
+    border-color: #ff7f00;      /* Orange border when selected */
+}
+
+/* Styling for QPushButtons in homePage Widget */
+QPushButton {
+    background: qlineargradient(
+        spread: pad, 
+        x1: 1, y1: 0.045, 
+        x2: 1, y2: 1, 
+        stop: 0 rgba(255, 120, 0, 255), 
+        stop: 1 rgba(246, 97, 81, 255)
+    ); /* Gradient background like sidebar */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 12px; /* Rounded corners */
+    font-size: 16px;
+    padding: 10px 20px; /* Adjust padding for button size */
+    text-align: center; /* Centered text */
+}
+
+/* Hover effect for buttons */
+QPushButton:hover {
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Light border on hover */
+    background: rgba(255, 120, 0, 180); /* Slightly darker when hovering */
+}
+
+/* Button Pressed Effect */
+QPushButton:pressed {
+    background: rgba(255, 255, 255, 0.2); /* Subtle background change */
+    background-color: rgba(255, 120, 0, 220); /* Darker orange when pressed */
+}
+</string>
+    </property>
     <widget class="QPushButton" name="startScanButton">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>320</y>
-       <width>111</width>
-       <height>51</height>
+       <x>230</x>
+       <y>430</y>
+       <width>161</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="text">
@@ -66,10 +139,10 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>80</y>
-       <width>441</width>
-       <height>221</height>
+       <x>60</x>
+       <y>100</y>
+       <width>511</width>
+       <height>321</height>
       </rect>
      </property>
      <property name="title">
@@ -78,7 +151,7 @@
      <widget class="QRadioButton" name="H1">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>40</y>
         <width>106</width>
         <height>23</height>
@@ -91,7 +164,7 @@
      <widget class="QRadioButton" name="H2">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>70</y>
         <width>106</width>
         <height>23</height>
@@ -104,7 +177,7 @@
      <widget class="QRadioButton" name="H3">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>100</y>
         <width>106</width>
         <height>23</height>
@@ -117,7 +190,7 @@
      <widget class="QRadioButton" name="H4">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>150</x>
         <y>40</y>
         <width>106</width>
         <height>23</height>
@@ -130,7 +203,7 @@
      <widget class="QRadioButton" name="H5">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>150</x>
         <y>70</y>
         <width>106</width>
         <height>23</height>
@@ -143,7 +216,7 @@
      <widget class="QRadioButton" name="H6">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>150</x>
         <y>100</y>
         <width>106</width>
         <height>23</height>
@@ -156,7 +229,7 @@
      <widget class="QRadioButton" name="F1">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>270</x>
         <y>40</y>
         <width>106</width>
         <height>23</height>
@@ -169,7 +242,7 @@
      <widget class="QRadioButton" name="F2">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>270</x>
         <y>70</y>
         <width>106</width>
         <height>23</height>
@@ -182,7 +255,7 @@
      <widget class="QRadioButton" name="F3">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>270</x>
         <y>100</y>
         <width>106</width>
         <height>23</height>
@@ -195,7 +268,7 @@
      <widget class="QRadioButton" name="F4">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>390</x>
         <y>40</y>
         <width>106</width>
         <height>23</height>
@@ -208,7 +281,7 @@
      <widget class="QRadioButton" name="F5">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>390</x>
         <y>70</y>
         <width>106</width>
         <height>23</height>
@@ -221,7 +294,7 @@
      <widget class="QRadioButton" name="F6">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>390</x>
         <y>100</y>
         <width>106</width>
         <height>23</height>
@@ -234,10 +307,10 @@
      <widget class="QPushButton" name="scanButton">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>150</y>
-        <width>83</width>
-        <height>25</height>
+        <x>200</x>
+        <y>170</y>
+        <width>111</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -247,45 +320,495 @@
      <widget class="QPushButton" name="doneButton">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>180</y>
-        <width>83</width>
-        <height>25</height>
+        <x>200</x>
+        <y>220</y>
+        <width>111</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Done</string>
+       <string>Finish</string>
       </property>
      </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="historyPage">
+    <property name="styleSheet">
+     <string notr="true">/* History Tab - ListWidget Styling */
+QListWidget {
+    background: transparent; /* Transparent background for the list */
+    border: 2px solid rgba(255, 120, 0, 255); /* Orange border around the list */
+    border-radius: 12px; /* Rounded corners for the entire list */
+    padding: 10px; /* Padding inside the list */
+    color: white; /* White text */
+    font-size: 16px; /* Font size for items */
+}
+
+/* List Item Styling */
+QListWidget::item {
+    background: rgba(0, 0, 0, 0.15); /* Darker background for non-selected items */
+    border: none;
+    color: white; /* White text color */
+    padding: 8px 12px; /* Padding around items */
+    border-radius: 10px; /* Rounded corners for each item */
+    margin: 5px 0; /* Space between items */
+}
+
+/* Selected Item Styling */
+QListWidget::item:selected {
+    background-color: rgba(255, 120, 0, 0.8); /* Darker orange background when selected */
+    border-radius: 10px; /* Rounded corners for selected items */
+}
+
+/* Hover Effect for List Items */
+QListWidget::item:hover {
+    background-color: rgba(255, 120, 0, 0.3); /* Light orange background on hover */
+    border-radius: 10px; /* Rounded corners for hover effect */
+}
+
+/* History Tab - Button Styling */
+QPushButton {
+    background: qlineargradient(
+        spread: pad, 
+        x1: 1, y1: 0.045, 
+        x2: 1, y2: 1, 
+        stop: 0 rgba(255, 120, 0, 255), 
+        stop: 1 rgba(246, 97, 81, 255)
+    ); /* Gradient background like sidebar */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 12px; /* Rounded corners for button */
+    font-size: 16px;
+    padding: 10px 20px; /* Padding for the button */
+    text-align: center; /* Centered text */
+}
+
+/* Button Hover Effect */
+QPushButton:hover {
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Light border on hover */
+    background: rgba(255, 120, 0, 180); /* Slightly darker when hovering */
+}
+
+/* Button Pressed Effect */
+QPushButton:pressed {
+    background: rgba(255, 255, 255, 0.2); /* Subtle background change */
+    background-color: rgba(255, 120, 0, 220); /* Darker orange when pressed */
+}
+</string>
+    </property>
+    <widget class="QListWidget" name="historyList">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>40</y>
+       <width>481</width>
+       <height>461</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="showDataButton">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>510</y>
+       <width>361</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Show Selected Data</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page">
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>270</y>
+       <x>30</x>
+       <y>40</y>
        <width>62</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>History</string>
+      <string>H1</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QWidget" name="page">
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>270</y>
-       <width>101</width>
+       <x>30</x>
+       <y>70</y>
+       <width>62</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>NEW PAGE</string>
+      <string>H2</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>H3</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>160</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>H5</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>H4</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>130</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>F4</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>H6</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>100</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>F3</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>40</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>F1</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>70</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>F2</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>190</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>F6</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>160</y>
+       <width>62</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>F5</string>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="h1Text">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="h2Text">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>70</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="h3Text">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>100</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="h4Text">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>130</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="h5Text">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>160</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="h6Text">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>190</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="f1Text">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>40</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="f4Text">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>130</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="f6Text">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>190</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="f2Text">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>70</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="f3Text">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>100</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="f5Text">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>160</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:white;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
     </widget>
    </widget>
@@ -300,25 +823,32 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
-    background-color: rgb(255,255,255);
-border: 2px solid rgb(220, 20, 60); 
+    <string notr="true">/* Sidebar QWidget */
+#sideBar {
+    background: qlineargradient(
+spread:pad, x1:1, y1:0.045, x2:1, y2:1, stop:0 rgba(255, 120, 0, 255), stop:1 rgba(246, 97, 81, 255));
+    border: none; /* Removes any default border */
 }
 
+/* QPushButtons inside the sidebar */
 QPushButton {
-   background-color: rgb(0, 128, 0); 
-    color: white;                    
-    border: 2px solid rgb(220, 20, 60); 
-    border-radius: 10px;           
-    font-weight: bold;               
-    font-family: &quot;Comic Sans MS&quot;, cursive; 
-    padding: 5px;                   
+    background: transparent; /* Transparent button background */
+    color: white;            /* White text for visibility */
+    border: none;            /* No border by default */
+    font-size: 16px;         /* Adjust font size for visibility */
+    padding: 8px;            /* Add padding around text */
+    text-align: left;        /* Align text to the left */
 }
 
 QPushButton:hover {
-    background-color: rgb(34, 139, 34); 
-    border-color: rgb(255, 69, 0);     
-}</string>
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Light border on hover */
+    border-radius: 4px;                         /* Rounded edges for hover effect */
+}
+
+QPushButton:pressed {
+    background: rgba(255, 255, 255, 0.2); /* Subtle background change on click */
+}
+</string>
    </property>
    <layout class="QVBoxLayout" name="sidebarLayout">
     <property name="leftMargin">
@@ -344,9 +874,9 @@ QPushButton:hover {
      </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="homeButton">
+     <widget class="QPushButton" name="measureButton">
       <property name="text">
-       <string>Home</string>
+       <string>Measure</string>
       </property>
       <property name="id" stdset="0">
        <number>0</number>
@@ -369,7 +899,7 @@ QPushButton:hover {
     <item>
      <widget class="QPushButton" name="newPageButton">
       <property name="text">
-       <string>NEW PAGE</string>
+       <string>Data</string>
       </property>
       <property name="id" stdset="0">
        <number>2</number>

@@ -11,7 +11,6 @@ User::User(QString f, QString l, QString g, QString c, QString e, QString p, QSt
     birthday = b;
     weight = w;
     height = h;
-    userHistory = new History();
 }
 
 User::~User(){
@@ -20,7 +19,7 @@ User::~User(){
 
 void User::addData(){
     Data* d = new Data();
-    userHistory->addData(d);
+    history.append(d);
     recentData = d;
 }
 
@@ -52,8 +51,8 @@ int User::getHeight(){
     return height;
 }
 
-History* User::getHistory(){
-    return userHistory;
+QList<Data*>* User::getHistory() {
+    return &history;
 }
 
 Data* User::getRecentData(){

@@ -7,9 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     // Create the AppWidget instance (the new home screen) - Nathan
-        appWidget = new AppWidget(this);
-        ui->StackedWidget->addWidget(appWidget);
+    appWidget = new AppWidget(this);
+    ui->StackedWidget->addWidget(appWidget);
 
     // Tester Login Profile - Mel
     profiles.append(new User("Login", "Tester", "Female", "Canada", "t", "16131234567", "t", QDate::currentDate(), 70, 150));

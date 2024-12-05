@@ -2,8 +2,8 @@
 #define USER_H
 
 #include <QString>
-#include <QDate>
-
+#include <QDateTime>
+#include <QList>
 #include "History.h"
 
 class User {
@@ -22,7 +22,7 @@ private:
     int weight;
     int height;
 
-    History* userHistory;
+    QList<Data* > history;
     Data* recentData;
 
 public:
@@ -39,7 +39,7 @@ public:
     QString getPassword();
     int getWeight();
     int getHeight();
-    History* getHistory();
+    QList<Data*>* getHistory();
     Data* getRecentData();
 };
 
