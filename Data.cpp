@@ -2,7 +2,7 @@
 
 Data::Data(){
 
-    mean = -1;
+   mean = -1;
    upper = -1;
    lower = -1;
 
