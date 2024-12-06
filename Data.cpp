@@ -2,7 +2,7 @@
 
 Data::Data(){
 
-    for (int i=0; i<2; i++){
+    for (int i=0; i<2; i++){  //Initialize multi-array representing 24 measured points 2x(H1-F6)
         for (int j=0; i<6; i++){
             h[i][j] = -1;
             f[i][j] = -1;
@@ -25,17 +25,88 @@ QDateTime Data::getCurrentDateTime() const {
     return currentDateTime;
 }
 
-QString Data::process()
+void Data::process(Ui::AppWidget *ui2) //Controls/Updates data visual representation boxes -Bahir
 {
-    mean =  h[0][0]+h[0][1]+h[0][2]+h[0][3]+h[0][4]+h[0][5]+f[0][0]+f[0][2]+f[0][2]+f[0][3]+f[0][4]+f[0][5]/12 ;
+    mean =  (h[0][0]+h[0][1]+h[0][2]+h[0][3]+h[0][4]+h[0][5]+f[0][0]+f[0][2]+f[0][2]+f[0][3]+f[0][4]+f[0][5]+h[1][0]+h[1][1]+h[1][2]+h[1][3]+h[1][4]+h[1][5]+f[1][0]+f[1][2]+f[1][2]+f[1][3]+f[1][4]+f[1][5])/24 ;
     upper = mean+0.7;
     lower = mean-0.7;
 
-
-    return "";
+    if(h[0][0] < lower){
+        ui2->label_17->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(h[0][1] < lower){
+        ui2->label_18->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(h[0][2] < lower){
+        ui2->label_19->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(h[0][3] < lower){
+        ui2->label_20->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(h[0][4] < lower){
+        ui2->label_21->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(h[0][5] < lower){
+        ui2->label_22->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(f[0][0] < lower){
+        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(f[0][1] < lower){
+        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(f[0][2] < lower){
+        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(f[0][3] < lower){
+        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(f[0][4] < lower){
+        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(f[0][5] < lower){
+        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
+    }
+    if(h[0][0] > upper){
+        ui2->label_17->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(h[0][1] > upper){
+        ui2->label_18->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(h[0][2] > upper){
+        ui2->label_19->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(h[0][3] > upper){
+        ui2->label_20->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(h[0][4] > upper){
+        ui2->label_21->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(h[0][5] > upper){
+        ui2->label_22->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(f[0][0] > upper){
+        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(f[0][1] > upper){
+        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(f[0][2] > upper){
+        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(f[0][3] > upper){
+        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(f[0][4] > upper){
+        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    if(f[0][5] > upper){
+        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    }
+    
 }
 
-void Data::barChart()
+void Data::barChart() //Controls bar chart -Bahir
 {
     // Assign names to the set of bars used
     set0 = new QBarSet("Left Side");
@@ -129,6 +200,42 @@ int Data::get(QString part){
     if(part == "F6"){
         return f[0][5];
     }
+    if(part == "H1_2"){
+        return h[1][0];
+    }
+    if(part == "H2_2"){
+        return h[1][1];
+    }
+    if(part == "H3_2"){
+        return h[1][2];
+    }
+    if(part == "H4_2"){
+        return h[1][3];
+    }
+    if(part == "H5_2"){
+        return h[1][4];
+    }
+    if(part == "H6_2"){
+        return h[1][5];
+    }
+    if(part == "F1_2"){
+        return f[1][0];
+    }
+    if(part == "F2_2"){
+        return f[1][1];
+    }
+    if(part == "F3_2"){
+        return f[1][2];
+    }
+    if(part == "F4_2"){
+        return f[1][3];
+    }
+    if(part == "F5_2"){
+        return f[1][4];
+    }
+    if(part == "F6_2"){
+        return f[1][5];
+    }
     return -1;
 }
 
@@ -168,6 +275,42 @@ void Data::set(QString part){
     }
     if(part == "F6"){
         f[0][5] = getRandomNum();
+    }
+    if(part == "H1_2"){
+        h[1][0] = getRandomNum();
+    }
+    if(part == "H2_2"){
+        h[1][1] = getRandomNum();
+    }
+    if(part == "H3_2"){
+        h[1][2] = getRandomNum();
+    }
+    if(part == "H4_2"){
+        h[1][3] = getRandomNum();
+    }
+    if(part == "H5_2"){
+        h[1][4] = getRandomNum();
+    }
+    if(part == "H6_2"){
+        h[1][5] = getRandomNum();
+    }
+    if(part == "F1_2"){
+        f[1][0] = getRandomNum();
+    }
+    if(part == "F2_2"){
+        f[1][1] = getRandomNum();
+    }
+    if(part == "F3_2"){
+        f[1][2] = getRandomNum();
+    }
+    if(part == "F4_2"){
+        f[1][3] = getRandomNum();
+    }
+    if(part == "F5_2"){
+        f[1][4] = getRandomNum();
+    }
+    if(part == "F6_2"){
+        f[1][5] = getRandomNum();
     }
 }
 

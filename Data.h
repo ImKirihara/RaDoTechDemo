@@ -4,6 +4,8 @@
 #include <QString>
 #include <QDateTime>
 #include <random>
+//Setup UI object
+#include "ui_appwidget.h"
 // Widget used to display charts -Bahir
 #include <QtCharts>
 // Define the scope for your variables and functions -Bahir
@@ -24,12 +26,11 @@ public:
 
     QDateTime getCurrentDateTime() const;
 
-    QString process();
+    void process(Ui::AppWidget *ui2);
 
     void barChart();
 
 private:
-    int h1, h2, h3, h4, h5, h6, f1, f2, f3, f4, f5, f6;
     int mean, upper, lower;
     int h[2][6];
     int f[2][6];

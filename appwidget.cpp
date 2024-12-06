@@ -129,7 +129,8 @@ void AppWidget::displayData(){
     // VERY TEMPORARY
     if (currentViewingData) {
         if (currentViewingData) {
-            currentViewingData->barChart();
+            currentViewingData->barChart(); //Setup bar chart -Bahir
+            currentViewingData->process();  //Setup color data visualisation -Bahir
             // Assign H1 to H6
             ui->h1Text->setPlainText(QString::number(currentViewingData->get("H1")));
             ui->h2Text->setPlainText(QString::number(currentViewingData->get("H2")));
