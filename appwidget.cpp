@@ -30,8 +30,7 @@ AppWidget::AppWidget(QWidget *parent) :
     // User History - Nathan
     historyWidget = ui->historyList;
 
-    //Data - nathan
-    connect(currentViewingData, &Data::updateLabelStyle, this, &AppWidget::handle_updateLabelStyle);
+
 
 }
 
@@ -120,12 +119,15 @@ bool AppWidget::doneScan(){
     // Send to view data
     switchPage(2);
     displayData();
+    //connect Data - nathan
+    connect(currentViewingData, &Data::updateLabelStyle, this, &AppWidget::handle_updateLabelStyle);
     //barChart();
     return true;
 }
 
 void AppWidget::setActiveUser(User* user){
     activeUser = user;
+
 }
 
 void AppWidget::handle_updateLabelStyle(int index, const QString& color){
