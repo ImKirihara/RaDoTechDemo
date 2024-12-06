@@ -4,7 +4,7 @@
 #include <QString>
 #include <QDateTime>
 #include <QList>
-#include "History.h"
+#include "Data.h"
 
 class User {
 

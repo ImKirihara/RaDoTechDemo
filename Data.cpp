@@ -27,7 +27,7 @@ QDateTime Data::getCurrentDateTime() const {
 
 void Data::process(Ui::AppWidget *ui2) //Controls/Updates data visual representation boxes -Bahir
 {
-    mean =  (h[0][0]+h[0][1]+h[0][2]+h[0][3]+h[0][4]+h[0][5]+f[0][0]+f[0][2]+f[0][2]+f[0][3]+f[0][4]+f[0][5]+h[1][0]+h[1][1]+h[1][2]+h[1][3]+h[1][4]+h[1][5]+f[1][0]+f[1][2]+f[1][2]+f[1][3]+f[1][4]+f[1][5])/24 ;
+    mean = (h[0][0]+h[0][1]+h[0][2]+h[0][3]+h[0][4]+h[0][5]+f[0][0]+f[0][2]+f[0][2]+f[0][3]+f[0][4]+f[0][5]+h[1][0]+h[1][1]+h[1][2]+h[1][3]+h[1][4]+h[1][5]+f[1][0]+f[1][2]+f[1][2]+f[1][3]+f[1][4]+f[1][5])/24 ;
     upper = mean+0.7;
     lower = mean-0.7;
 
