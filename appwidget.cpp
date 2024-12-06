@@ -132,7 +132,6 @@ void AppWidget::handle_updateLabelStyle(int index, const QString& color){
             label->setStyleSheet("background-color: " + color);
         }
 }
-
 QLabel* AppWidget::findLabelByIndex(int index) {
     switch (index) {
         case 0: return ui->label_17;

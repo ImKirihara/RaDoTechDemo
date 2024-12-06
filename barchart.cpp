@@ -1,6 +1,7 @@
 #include "barchart.h"
 #include "Data.h"
 
+// mostly done by bashir but nathan added onto it and made it its own class
 BarChart::BarChart(Data* data, QWidget *parent) : QWidget(parent)
 {
     // Initialize the chart and bar sets
