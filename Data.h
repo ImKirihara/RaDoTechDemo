@@ -38,6 +38,7 @@ private:
 
     QDateTime currentDateTime;
     QBarSet *set0;
+    QBarSet *set1;
     QBarSeries *series;
     QChart *chart;
     QChartView *chartView;

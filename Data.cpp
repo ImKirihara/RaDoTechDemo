@@ -114,16 +114,13 @@ void Data::barChart() //Controls bar chart -Bahir
 
     // Assign values for each bar
     *set0 << h[0][0] << h[0][1] << h[0][2] <<h[0][3] << h[0][4] << h[0][5] << f[0][0] << f[0][2] << f[0][2] << f[0][3] << f[0][4] << f[0][5];
-    //*set1 << 250 << 315 << 282 << 307 << 303 << 330;
+    *set1 << h[1][0] << h[1][1] << h[1][2] <<h[1][3] << h[1][4] << h[1][5] << f[1][0] << f[1][2] << f[1][2] << f[1][3] << f[1][4] << f[1][5];
 
     // Add all sets of data to the chart as a whole
     // 1. Bar Chart
     series = new QBarSeries();
-
-    // 2. Stacked bar chart
-    // QHorizontalStackedBarSeries *series = new QHorizontalStackedBarSeries();
     series->append(set0);
-    //series->append(set1);
+    series->append(set1);
 
     // Used to define the bar chart to display, title
     // legend,
