@@ -29,6 +29,8 @@ private slots:
     void viewScanner();
     bool completeScan();
     bool doneScan();
+public slots:
+    void handle_updateLabelStyle(int index, const QString& color);
 
 signals:
     void signOutRequest();
@@ -39,6 +41,7 @@ private:
     User* activeUser = nullptr;
     Data* currentViewingData;
 
+    QLabel* findLabelByIndex(int index);
     QStackedWidget *stackedWidget;
     QWidget *sideBarWidget;
     QButtonGroup *sideBarButtons;

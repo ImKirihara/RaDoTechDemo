@@ -1414,7 +1414,7 @@ QPushButton:pressed {
        <x>160</x>
        <y>270</y>
        <width>321</width>
-       <height>16</height>
+       <height>19</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">

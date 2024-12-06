@@ -11,8 +11,8 @@
 // Define the scope for your variables and functions -Bahir
 QT_CHARTS_USE_NAMESPACE
 
-class Data{
-
+class Data : public QObject{
+    Q_OBJECT
 public:
     Data();
     ~Data();
@@ -26,14 +26,15 @@ public:
 
     QDateTime getCurrentDateTime() const;
 
-    void process(Ui::AppWidget *ui2);
+    void process();
 
     void barChart();
-
+signals:
+    void updateLabelStyle(int index, const QString& color);
 private:
     int mean, upper, lower;
-    int h[2][6];
-    int f[2][6];
+    QVector<QVector<int>> h;
+    QVector<QVector<int>> f;
     QString symptoms[5];
 
     QDateTime currentDateTime;

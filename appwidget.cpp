@@ -30,6 +30,9 @@ AppWidget::AppWidget(QWidget *parent) :
     // User History - Nathan
     historyWidget = ui->historyList;
 
+    //Data - nathan
+    connect(currentViewingData, &Data::updateLabelStyle, this, &AppWidget::handle_updateLabelStyle);
+
 }
 
 AppWidget::~AppWidget()
@@ -125,12 +128,38 @@ void AppWidget::setActiveUser(User* user){
     activeUser = user;
 }
 
+void AppWidget::handle_updateLabelStyle(int index, const QString& color){
+    // Map the index to the corresponding label - Nathan
+        QLabel* label = findLabelByIndex(index);
+        if (label) {
+            label->setStyleSheet("background-color: " + color);
+        }
+}
+
+QLabel* AppWidget::findLabelByIndex(int index) {
+    switch (index) {
+        case 0: return ui->label_17;
+        case 1: return ui->label_18;
+        case 2: return ui->label_19;
+        case 3: return ui->label_20;
+        case 4: return ui->label_21;
+        case 5: return ui->label_22;
+        case 6: return ui->label_23;
+        case 7: return ui->label_24;
+        case 8: return ui->label_25;
+        case 9: return ui->label_26;
+        case 10: return ui->label_27;
+        case 11: return ui->label_28;
+        default: return nullptr;
+    }
+}
 void AppWidget::displayData(){
     // VERY TEMPORARY
     if (currentViewingData) {
         if (currentViewingData) {
             currentViewingData->barChart(); //Setup bar chart -Bahir
-            currentViewingData->process(ui);  //Setup color data visualisation -Bahir
+            currentViewingData->process();  //Setup color data visualisation -Bahir
+            // Assign H1 to H6
             // Assign H1 to H6
             ui->h1Text->setPlainText(QString::number(currentViewingData->get("H1")));
             ui->h2Text->setPlainText(QString::number(currentViewingData->get("H2")));

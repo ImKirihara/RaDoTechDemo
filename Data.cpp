@@ -2,17 +2,19 @@
 
 Data::Data(){
 
-    for (int i=0; i<2; i++){  //Initialize multi-array representing 24 measured points 2x(H1-F6)
-        for (int j=0; i<6; i++){
-            h[i][j] = -1;
-            f[i][j] = -1;
-
-        }
-    }
     mean = -1;
-    upper = -1;
-    lower = -1;
+   upper = -1;
+   lower = -1;
 
+   // Initialize h and f with 2 rows and 6 columns, filled with -1
+   h.resize(2);
+   f.resize(2);
+
+   // Initialize each row with 6 columns, filled with -1
+   for (int i = 0; i < 2; ++i) {
+       h[i] = QVector<int>(6, -1);  // Initialize each row to 6 elements with value -1
+       f[i] = QVector<int>(6, -1);  // Initialize each row to 6 elements with value -1
+   }
 
     currentDateTime = QDateTime::currentDateTime();
 }
@@ -25,83 +27,31 @@ QDateTime Data::getCurrentDateTime() const {
     return currentDateTime;
 }
 
-void Data::process(Ui::AppWidget *ui2) //Controls/Updates data visual representation boxes -Bahir
+void Data::process() //Controls/Updates data visual representation boxes -Bahir
 {
-    mean = (h[0][0]+h[0][1]+h[0][2]+h[0][3]+h[0][4]+h[0][5]+f[0][0]+f[0][2]+f[0][2]+f[0][3]+f[0][4]+f[0][5]+h[1][0]+h[1][1]+h[1][2]+h[1][3]+h[1][4]+h[1][5]+f[1][0]+f[1][2]+f[1][2]+f[1][3]+f[1][4]+f[1][5])/24 ;
+    int sum = 0;
+
+    for(int i =0; i <2; ++i){
+        for(int j = 0; j < 6; ++j){
+            sum +=h[i][j];
+            sum +=f[i][j];
+        }
+    }
+    mean = sum/24 ;
     upper = mean+0.7;
     lower = mean-0.7;
 
-    if(h[0][0] < lower){
-        ui2->label_17->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(h[0][1] < lower){
-        ui2->label_18->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(h[0][2] < lower){
-        ui2->label_19->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(h[0][3] < lower){
-        ui2->label_20->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(h[0][4] < lower){
-        ui2->label_21->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(h[0][5] < lower){
-        ui2->label_22->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(f[0][0] < lower){
-        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(f[0][1] < lower){
-        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(f[0][2] < lower){
-        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(f[0][3] < lower){
-        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(f[0][4] < lower){
-        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(f[0][5] < lower){
-        ui2->label_23->setStyleSheet("background-colour: rgb(28, 113, 216)");
-    }
-    if(h[0][0] > upper){
-        ui2->label_17->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(h[0][1] > upper){
-        ui2->label_18->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(h[0][2] > upper){
-        ui2->label_19->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(h[0][3] > upper){
-        ui2->label_20->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(h[0][4] > upper){
-        ui2->label_21->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(h[0][5] > upper){
-        ui2->label_22->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(f[0][0] > upper){
-        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(f[0][1] > upper){
-        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(f[0][2] > upper){
-        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(f[0][3] > upper){
-        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(f[0][4] > upper){
-        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
-    }
-    if(f[0][5] > upper){
-        ui2->label_23->setStyleSheet("background-colour: rgb(224, 27, 36)");
+    // Emit signals to update UI based on conditions - Nathan
+    for (int i = 0; i < 2; ++i) {
+        for (int j = 0; j < 6; ++j) {
+            QString color;
+            if (h[i][j] < lower || f[i][j] < lower) {
+                color = "rgb(28, 113, 216)";  // Blue for below lower
+            } else if (h[i][j] > upper || f[i][j] > upper) {
+                color = "rgb(224, 27, 36)";  // Red for above upper
+            }
+            emit updateLabelStyle(i * 6 + j, color);
+        }
     }
     
 }
@@ -159,8 +109,6 @@ void Data::barChart() //Controls bar chart -Bahir
    chartView = new QChartView(chart);
    chartView->setRenderHint(QPainter::Antialiasing);
    chartView->setVisible(true);
-
-
 }
 
 int Data::get(QString part){
