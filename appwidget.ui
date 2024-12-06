@@ -31,7 +31,7 @@
 }</string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="homePage">
     <property name="styleSheet">
@@ -152,7 +152,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>40</y>
+        <y>60</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -165,7 +165,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>70</y>
+        <y>90</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -178,7 +178,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>100</y>
+        <y>120</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -191,7 +191,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>40</y>
+        <y>60</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -204,7 +204,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>70</y>
+        <y>90</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -217,7 +217,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>100</y>
+        <y>120</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -230,7 +230,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>270</x>
-        <y>40</y>
+        <y>60</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -243,7 +243,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>270</x>
-        <y>70</y>
+        <y>90</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -256,7 +256,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>270</x>
-        <y>100</y>
+        <y>120</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -269,7 +269,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>390</x>
-        <y>40</y>
+        <y>60</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -282,7 +282,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>390</x>
-        <y>70</y>
+        <y>90</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -295,7 +295,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>390</x>
-        <y>100</y>
+        <y>120</y>
         <width>106</width>
         <height>23</height>
        </rect>
@@ -308,7 +308,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>200</x>
-        <y>170</y>
+        <y>190</y>
         <width>111</width>
         <height>41</height>
        </rect>
@@ -321,13 +321,42 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>200</x>
-        <y>220</y>
+        <y>240</y>
         <width>111</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
        <string>Finish</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="batteryBar">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>20</y>
+        <width>118</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar{
+	border: 1px solid black;
+	background: transparent;
+	border-radius: 8px;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+	
+}
+
+QProgressBar::chunk{
+	background-color: green;
+	border-radius: 8px;
+}</string>
+      </property>
+      <property name="value">
+       <number>100</number>
       </property>
      </widget>
     </widget>
@@ -918,6 +947,13 @@ QPushButton:pressed {
        </size>
       </property>
      </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="chargeBatteryButton">
+      <property name="text">
+       <string>Charge Battery</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="signOutButton">

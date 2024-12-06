@@ -10,6 +10,8 @@ AppWidget::AppWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    batteryTimer = new QTimer(this);
+
     stackedWidget = ui->stackedWidget;
     sideBarWidget = ui->sideBar;
 
@@ -25,6 +27,9 @@ AppWidget::AppWidget(QWidget *parent) :
     connect(ui->showDataButton, SIGNAL(clicked()), this, SLOT(setCurrentViewingData()));
 
     connect(ui->signOutButton, &QPushButton::clicked, this, &AppWidget::signOutRequest);
+
+    connect(batteryTimer, &QTimer::timeout, this, &AppWidget::decreaseBattery);
+    connect(ui->chargeBatteryButton, SIGNAL(clicked()), this, SLOT(chargeBattery()));
 
     // User History - Nathan
     historyWidget = ui->historyList;
@@ -72,14 +77,26 @@ void AppWidget::switchPage(int pageId)
     stackedWidget->setCurrentIndex(pageId);
 }
 
-void AppWidget::viewScanner(){
+bool AppWidget::viewScanner(){
+    if(ui->batteryBar->value() <= 0){
+        return false;
+    }
     ui->scanBox->setVisible(true);
     ui->scanBox->setEnabled(true);
 
     activeUser->addData();
+
+    batteryTimer->start(1000);
+
+    return true;
 }
 
 bool AppWidget::completeScan(){
+    if(ui->batteryBar->value() <= 0){
+        QMessageBox::warning(this, "Battery", "The RaDoTech device has no power. Please charge to continue.");
+        return false;
+    }
+
     QList<QRadioButton*> radioButtons = ui->scanBox->findChildren<QRadioButton*>();
 
     for(QRadioButton* rb : radioButtons){
@@ -99,6 +116,8 @@ bool AppWidget::doneScan(){
     }
     ui->scanBox->setVisible(false);
     ui->scanBox->setEnabled(false);
+
+    batteryTimer->stop();
 
     // update history widget - Nathan
     historyWidget->clear();
@@ -145,5 +164,14 @@ void AppWidget::displayData(){
 
     }
 
+}
+
+void AppWidget::decreaseBattery(){
+    int currBattery = ui->batteryBar->value();
+    ui->batteryBar->setValue(currBattery - 1);
+}
+
+void AppWidget::chargeBattery(){
+    ui->batteryBar->setValue(100);
 }
 
