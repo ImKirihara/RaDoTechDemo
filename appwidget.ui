@@ -608,886 +608,976 @@ QPushButton:pressed {
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="page">
-    <widget class="QLabel" name="label_2">
+   <widget class="QWidget" name="dataPage">
+    <property name="styleSheet">
+     <string notr="true">/* History Tab - ListWidget Styling */
+QListWidget {
+    background: transparent; /* Transparent background for the list */
+    border: 2px solid rgba(255, 120, 0, 255); /* Orange border around the list */
+    border-radius: 12px; /* Rounded corners for the entire list */
+    padding: 10px; /* Padding inside the list */
+    color: white; /* White text */
+    font-size: 16px; /* Font size for items */
+}
+
+/* List Item Styling */
+QListWidget::item {
+    background: rgba(0, 0, 0, 0.15); /* Darker background for non-selected items */
+    border: none;
+    color: white; /* White text color */
+    padding: 8px 12px; /* Padding around items */
+    border-radius: 10px; /* Rounded corners for each item */
+    margin: 5px 0; /* Space between items */
+}
+
+/* Selected Item Styling */
+QListWidget::item:selected {
+    background-color: rgba(255, 120, 0, 0.8); /* Darker orange background when selected */
+    border-radius: 10px; /* Rounded corners for selected items */
+}
+
+/* Hover Effect for List Items */
+QListWidget::item:hover {
+    background-color: rgba(255, 120, 0, 0.3); /* Light orange background on hover */
+    border-radius: 10px; /* Rounded corners for hover effect */
+}
+
+/* History Tab - Button Styling */
+QPushButton {
+    background: qlineargradient(
+        spread: pad, 
+        x1: 1, y1: 0.045, 
+        x2: 1, y2: 1, 
+        stop: 0 rgba(255, 120, 0, 255), 
+        stop: 1 rgba(246, 97, 81, 255)
+    ); /* Gradient background like sidebar */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 12px; /* Rounded corners for button */
+    font-size: 16px;
+    padding: 10px 20px; /* Padding for the button */
+    text-align: center; /* Centered text */
+}
+
+/* Button Hover Effect */
+QPushButton:hover {
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Light border on hover */
+    background: rgba(255, 120, 0, 180); /* Slightly darker when hovering */
+}
+
+/* Button Pressed Effect */
+QPushButton:pressed {
+    background: rgba(255, 255, 255, 0.2); /* Subtle background change */
+    background-color: rgba(255, 120, 0, 220); /* Darker orange when pressed */
+}
+</string>
+    </property>
+    <widget class="QTabWidget" name="tabWidget">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>40</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>H1</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>70</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>H2</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>100</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>H3</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>160</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>H5</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>130</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>H4</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>130</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>F4</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>190</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>H6</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>100</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>F3</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>40</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>F1</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>70</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>F2</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_12">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>190</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>F6</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_13">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>160</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>F5</string>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h1Text">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>101</width>
-       <height>21</height>
+       <x>0</x>
+       <y>0</y>
+       <width>621</width>
+       <height>601</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h2Text">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>70</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h3Text">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>100</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h4Text">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>130</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h5Text">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>160</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h6Text">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>190</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f1Text">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>40</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f4Text">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>130</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f6Text">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>190</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f2Text">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>70</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f3Text">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>100</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f5Text">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>160</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>10</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Left</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_14">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>10</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Right</string>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h1Text_2">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>40</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h2Text_2">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>70</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h3Text_2">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>100</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h4Text_2">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>130</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h5Text_2">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>160</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="h6Text_2">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>190</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f6Text_2">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>190</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f2Text_2">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>70</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f4Text_2">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>130</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f1Text_2">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>40</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f3Text_2">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>100</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="f5Text_2">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>160</y>
-       <width>101</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color:white;</string>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>480</x>
-       <y>10</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Right</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_16">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>10</y>
-       <width>62</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Left</string>
-     </property>
-    </widget>
-    <widget class="QWidget" name="gridLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>300</y>
-       <width>501</width>
-       <height>281</height>
-      </rect>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <property name="sizeConstraint">
-       <enum>QLayout::SetDefaultConstraint</enum>
-      </property>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_19">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
+      <string notr="true">color:white;
+</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Tab 1</string>
+      </attribute>
+      <widget class="QTextBrowser" name="f1Text">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>30</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>150</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>F5</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>90</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>F3</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f4Text_2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>10</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Left</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h1Text">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>30</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Left</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>60</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>F2</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>150</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>H5</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h6Text_2">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>180</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h6Text">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>180</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f5Text">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>150</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h4Text">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>H1</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f4Text">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f2Text">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>60</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f3Text">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>90</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>120</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>F4</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h2Text">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>60</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>H3</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>260</y>
+         <width>501</width>
+         <height>281</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
         </property>
-        <property name="text">
-         <string>Heart</string>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="1">
-       <widget class="QLabel" name="label_28">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Stomach</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
-       <widget class="QLabel" name="label_25">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Kidney</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="label_20">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Small Intestine</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label_18">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Pericaridium</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
-       <widget class="QLabel" name="label_26">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Bladder</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="label_23">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Pancrease</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_21">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Lymph Vessel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_17">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Lungs</string>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="0">
-       <widget class="QLabel" name="label_27">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Gull Bladder</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <widget class="QLabel" name="label_24">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Liver</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="QLabel" name="label_22">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string>Large Intestine</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>270</y>
-       <width>321</width>
-       <height>19</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label_29">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(51, 209, 122);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_30">
-        <property name="text">
-         <string>Normal</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_31">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(28, 113, 216);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_32">
-        <property name="text">
-         <string>Below Normal</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_33">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(224, 27, 36);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_34">
-        <property name="text">
-         <string>Above Normal</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_19">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Heart</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QLabel" name="label_28">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Stomach</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="label_25">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Kidney</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_20">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Small Intestine</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label_18">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Pericaridium</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QLabel" name="label_26">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Bladder</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_23">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Pancrease</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_21">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Lymph Vessel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_17">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Lungs</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QLabel" name="label_27">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Gull Bladder</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLabel" name="label_24">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Liver</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLabel" name="label_22">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string>Large Intestine</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTextBrowser" name="h3Text_2">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>90</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>H2</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f6Text_2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>180</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f3Text_2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>90</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f1Text_2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>30</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h4Text_2">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>120</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>30</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>F1</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h2Text_2">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>60</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>10</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Right</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h3Text">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>90</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h1Text_2">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>30</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>180</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>F6</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>180</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>H6</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>220</y>
+         <width>321</width>
+         <height>19</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label_29">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(51, 209, 122);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_30">
+          <property name="text">
+           <string>Normal</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_31">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(28, 113, 216);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_32">
+          <property name="text">
+           <string>Below Normal</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_33">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(224, 27, 36);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_34">
+          <property name="text">
+           <string>Above Normal</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>120</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>H4</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f6Text">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>180</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f5Text_2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>150</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="f2Text_2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>60</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h5Text_2">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>150</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>10</y>
+         <width>62</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Right</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="h5Text">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>150</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Tab 2</string>
+      </attribute>
+     </widget>
     </widget>
    </widget>
   </widget>

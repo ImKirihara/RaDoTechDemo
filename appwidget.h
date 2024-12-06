@@ -9,6 +9,7 @@
 #include <QDateTime>
 #include <QListWidget>
 #include "User.h"
+#include "barchart.h"
 
 namespace Ui {
 class AppWidget;

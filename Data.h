@@ -4,8 +4,6 @@
 #include <QString>
 #include <QDateTime>
 #include <random>
-//Setup UI object
-#include "ui_appwidget.h"
 // Widget used to display charts -Bahir
 #include <QtCharts>
 // Define the scope for your variables and functions -Bahir
@@ -25,10 +23,11 @@ public:
     bool getCompleted();
 
     QDateTime getCurrentDateTime() const;
+    const QVector<QVector<int>>& getH() const;
+    const QVector<QVector<int>>& getF() const;
 
     void process();
-
-    void barChart();
+//    void barChart(); // remove
 signals:
     void updateLabelStyle(int index, const QString& color);
 private:
@@ -38,10 +37,10 @@ private:
     QString symptoms[5];
 
     QDateTime currentDateTime;
-    QBarSet *set0;
-    QBarSeries *series;
-    QChart *chart;
-    QChartView *chartView;
+//    QBarSet *set0;
+//    QBarSeries *series;
+//    QChart *chart;
+//    QChartView *chartView;
 };
 
 #endif // DATA_H

@@ -12,6 +12,7 @@ SOURCES += \
     Data.cpp \
     User.cpp \
     appwidget.cpp \
+    barchart.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -19,6 +20,7 @@ HEADERS += \
     Data.h \
     User.h \
     appwidget.h \
+    barchart.h \
     mainwindow.h
 
 FORMS += \

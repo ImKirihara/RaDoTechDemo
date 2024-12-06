@@ -29,9 +29,6 @@ AppWidget::AppWidget(QWidget *parent) :
 
     // User History - Nathan
     historyWidget = ui->historyList;
-
-
-
 }
 
 AppWidget::~AppWidget()
@@ -119,9 +116,7 @@ bool AppWidget::doneScan(){
     // Send to view data
     switchPage(2);
     displayData();
-    //connect Data - nathan
-    connect(currentViewingData, &Data::updateLabelStyle, this, &AppWidget::handle_updateLabelStyle);
-    //barChart();
+
     return true;
 }
 
@@ -157,11 +152,16 @@ QLabel* AppWidget::findLabelByIndex(int index) {
 }
 void AppWidget::displayData(){
     // VERY TEMPORARY
-    if (currentViewingData) {
         if (currentViewingData) {
-            currentViewingData->barChart(); //Setup bar chart -Bahir
+            //connect Data - nathan
+            connect(currentViewingData, &Data::updateLabelStyle, this, &AppWidget::handle_updateLabelStyle);
+
             currentViewingData->process();  //Setup color data visualisation -Bahir
-            // Assign H1 to H6
+            BarChart *barChartWidget = new BarChart(currentViewingData, ui->tab_2);
+            barChartWidget->show();
+            barChartWidget->setFixedSize(621,601);
+
+            // TODO: this needs to display in the texts
             // Assign H1 to H6
             ui->h1Text->setPlainText(QString::number(currentViewingData->get("H1")));
             ui->h2Text->setPlainText(QString::number(currentViewingData->get("H2")));
@@ -180,7 +180,6 @@ void AppWidget::displayData(){
 
         }
 
-    }
 
 }
 

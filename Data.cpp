@@ -23,6 +23,9 @@ Data::~Data(){
 
 }
 
+const QVector<QVector<int>>& Data::getH() const{ return h;}
+const QVector<QVector<int>>& Data::getF() const{ return f;}
+
 QDateTime Data::getCurrentDateTime() const {
     return currentDateTime;
 }
@@ -56,60 +59,6 @@ void Data::process() //Controls/Updates data visual representation boxes -Bahir
     
 }
 
-void Data::barChart() //Controls bar chart -Bahir
-{
-    // Assign names to the set of bars used
-    set0 = new QBarSet("Left Side");
-    //QBarSet *set1 = new QBarSet("Martinez");
-
-    // Assign values for each bar
-    *set0 << h[0][0] << h[0][1] << h[0][2] <<h[0][3] << h[0][4] << h[0][5] << f[0][0] << f[0][2] << f[0][2] << f[0][3] << f[0][4] << f[0][5];
-    //*set1 << 250 << 315 << 282 << 307 << 303 << 330;
-
-    // Add all sets of data to the chart as a whole
-    // 1. Bar Chart
-    series = new QBarSeries();
-
-    // 2. Stacked bar chart
-    // QHorizontalStackedBarSeries *series = new QHorizontalStackedBarSeries();
-    series->append(set0);
-    //series->append(set1);
-
-    // Used to define the bar chart to display, title
-    // legend,
-    chart = new QChart();
-
-    // Add the chart
-    chart->addSeries(series);
-
-    // Set title
-    chart->setTitle("Ryodoraku Readings");
-
-    // Define starting animation
-    // NoAnimation, GridAxisAnimations, SeriesAnimations
-    chart->setAnimationOptions(QChart::AllAnimations);
-    // Holds the category titles
-    QStringList categories;
-    categories << "Lungs" << "Pericaridium" << "Heart" << "Small Intestine" << "Lymph Vessel" << "Large Intestine" << "Pancrease" << "Liver" << "Kidney" << "Bladder" << "Gall Bladder" << "Stomach";
-
-    // Adds categories to the axes
-    QBarCategoryAxis *axis = new QBarCategoryAxis();
-    axis->append(categories);
-    chart->createDefaultAxes();
-
-    // 1. Bar chart
-    chart->setAxisX(axis, series);
-
-
-   // Define where the legend is displayed
-   chart->legend()->setVisible(true);
-   chart->legend()->setAlignment(Qt::AlignBottom);
-
-   // Used to display the chart
-   chartView = new QChartView(chart);
-   chartView->setRenderHint(QPainter::Antialiasing);
-   chartView->setVisible(true);
-}
 
 int Data::get(QString part){
     if(part == "H1"){
