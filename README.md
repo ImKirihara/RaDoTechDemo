@@ -2,15 +2,15 @@
 
 Team Members:
 
-Bahir Salami
+#Bahir Salami
 - worked on diagrams and graphing the data
-Ellie Molina 
+#Ellie Molina 
 - worked on collecting the data from the user
 - use case
-Matthew Ho
+#Matthew Ho
 - did a use case
-Melanie Thorpe
+#Melanie Thorpe
 - worked on user creation and use cases
-Nathan Batchelor
+#Nathan Batchelor
 - worked on history of the user data
 - some display of user data
