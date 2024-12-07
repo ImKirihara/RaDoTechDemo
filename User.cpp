@@ -14,7 +14,17 @@ User::User(QString f, QString l, QString g, QString c, QString e, QString p, QSt
 }
 
 User::~User(){
-    qDeleteAll(history);
+
+}
+
+void User::addData(){
+    Data* d = new Data();
+    history.append(d);
+    recentData = d;
+}
+
+void User::addInfo(QString part){
+    recentData->set(part);
 }
 
 QString User::getName(){
@@ -41,6 +51,10 @@ int User::getHeight(){
     return height;
 }
 
-Data User::getHistory(int i){
-    return *history[i];
+QList<Data*>* User::getHistory() {
+    return &history;
+}
+
+Data* User::getRecentData(){
+    return recentData;
 }

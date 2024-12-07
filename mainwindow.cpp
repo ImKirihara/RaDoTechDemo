@@ -1,17 +1,19 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "appwidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     // Create the AppWidget instance (the new home screen) - Nathan
-        appWidget = new AppWidget(this);
-        ui->StackedWidget->addWidget(appWidget);
+    appWidget = new AppWidget(this);
+    ui->StackedWidget->addWidget(appWidget);
 
     // Tester Login Profile - Mel
-    profiles.append(new User("Login", "Tester", "Female", "Canada", "tester@gmail.com", "16131234567", "password", QDate::currentDate(), 70, 150));
+    profiles.append(new User("Login", "Tester", "Female", "Canada", "t", "16131234567", "t", QDate::currentDate(), 70, 150));
 
     // Main Menu Screen - Mel
     ui->StackedWidget->setCurrentWidget(ui->Menu);
@@ -27,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent)
         changePage(ui->loginProfile);
     });
     connect(ui->enterButton, SIGNAL(clicked()), this, SLOT(loginUser()));
+
+    connect(appWidget, &AppWidget::signOutRequest, this, &MainWindow::signOut);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -94,9 +100,9 @@ bool MainWindow::createUser(){
 
     User* u = new User(f, l, g, c, e, p, pass, b, w, h);
     profiles.append(u);
+    appWidget->setActiveUser(u);
 
     changePage(appWidget);
-//    ui->welcomeLbl->setText("Welcome " + u->getName());
 
     return true;
 }
@@ -110,7 +116,7 @@ bool MainWindow::loginUser(){
         if(enteredEmail == profiles[i]->getEmail()){
             if(enteredPassword == profiles[i]->getPassword()){
                 changePage(appWidget);
-//                ui->welcomeLbl->setText("Welcome " + profiles[i]->getName());
+                appWidget->setActiveUser(profiles[i]);
                 return true;
             }else{
                 QMessageBox::warning(this, "Invalid Password", "Incorrect Password");
@@ -120,5 +126,10 @@ bool MainWindow::loginUser(){
     }
     QMessageBox::warning(this, "Invalid Email", "Incorrect Email or Password");
     return false;
+}
+
+void MainWindow::signOut(){
+    appWidget->setActiveUser(nullptr);
+    changePage(ui->Menu);
 }
 
