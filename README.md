@@ -1,16 +1,20 @@
-# RaDoTechDemo
+## Team Members and Contributions
 
-Team Members:
+### Bahir Salami
+- Designed and implemented diagrams.
+- Focused on graphing user data to present insights effectively.
 
-#Bahir Salami
-- worked on diagrams and graphing the data
-#Ellie Molina 
-- worked on collecting the data from the user
-- use case
-#Matthew Ho
-- did a use case
-#Melanie Thorpe
-- worked on user creation and use cases
-#Nathan Batchelor
-- worked on history of the user data
-- some display of user data
+### Ellie Molina
+- Specialized in data collection from users.
+- Developed use cases to illustrate the application's capabilities.
+
+### Matthew Ho
+- Contributed to defining and implementing a use case.
+
+### Melanie Thorpe
+- Led the user creation feature development.
+- Worked on multiple use cases to ensure user engagement.
+
+### Nathan Batchelor
+- Focused on managing the history of user data.
+- Implemented some aspects of data visualization for historical records.
