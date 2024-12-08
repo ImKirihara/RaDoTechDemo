@@ -31,7 +31,7 @@
 }</string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="homePage">
     <property name="styleSheet">
@@ -160,6 +160,9 @@ QPushButton:pressed {
       <property name="text">
        <string>H1</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="H2">
       <property name="geometry">
@@ -172,6 +175,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>H2</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="H3">
@@ -186,6 +192,9 @@ QPushButton:pressed {
       <property name="text">
        <string>H3</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="H4">
       <property name="geometry">
@@ -198,6 +207,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>H4</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="H5">
@@ -212,6 +224,9 @@ QPushButton:pressed {
       <property name="text">
        <string>H5</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="H6">
       <property name="geometry">
@@ -224,6 +239,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>H6</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="F1">
@@ -238,6 +256,9 @@ QPushButton:pressed {
       <property name="text">
        <string>F1</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="F2">
       <property name="geometry">
@@ -250,6 +271,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>F2</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="F3">
@@ -264,6 +288,9 @@ QPushButton:pressed {
       <property name="text">
        <string>F3</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="F4">
       <property name="geometry">
@@ -276,6 +303,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>F4</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="F5">
@@ -290,6 +320,9 @@ QPushButton:pressed {
       <property name="text">
        <string>F5</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="F6">
       <property name="geometry">
@@ -302,6 +335,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>F6</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="scanButton">
@@ -342,6 +378,9 @@ QPushButton:pressed {
       <property name="text">
        <string>F6</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="H1_2">
       <property name="geometry">
@@ -354,6 +393,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>H1</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="F2_2">
@@ -368,6 +410,9 @@ QPushButton:pressed {
       <property name="text">
        <string>F2</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="F1_2">
       <property name="geometry">
@@ -380,6 +425,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>F1</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="F5_2">
@@ -394,6 +442,9 @@ QPushButton:pressed {
       <property name="text">
        <string>F5</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="H4_2">
       <property name="geometry">
@@ -406,6 +457,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>H4</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="F4_2">
@@ -420,6 +474,9 @@ QPushButton:pressed {
       <property name="text">
        <string>F4</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="H6_2">
       <property name="geometry">
@@ -432,6 +489,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>H6</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="H3_2">
@@ -446,6 +506,9 @@ QPushButton:pressed {
       <property name="text">
        <string>H3</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="H5_2">
       <property name="geometry">
@@ -458,6 +521,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>H5</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QRadioButton" name="F3_2">
@@ -472,6 +538,9 @@ QPushButton:pressed {
       <property name="text">
        <string>F3</string>
       </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QRadioButton" name="H2_2">
       <property name="geometry">
@@ -484,6 +553,9 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>H2</string>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="label_35">
@@ -510,6 +582,51 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>Right Side</string>
+      </property>
+     </widget>
+     <widget class="RaDoTechDevice" name="r_device" native="true">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>140</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>81</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: black;</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="batteryBar">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>20</y>
+        <width>118</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>100</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rechargeButton">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>330</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Recharge</string>
       </property>
      </widget>
     </widget>
@@ -1697,6 +1814,14 @@ QPushButton:pressed {
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>RaDoTechDevice</class>
+   <extends>QWidget</extends>
+   <header>radotechdevice.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

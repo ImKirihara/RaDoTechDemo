@@ -10,6 +10,7 @@
 #include <QListWidget>
 #include "User.h"
 #include "barchart.h"
+#include "radotechdevice.h"
 
 namespace Ui {
 class AppWidget;
@@ -30,6 +31,11 @@ private slots:
     bool completeScan();
     bool doneScan();
     void toggleSideBar();
+
+    void checkSkinContact(QPoint devicePos); //matthew
+    void on_rechargeButton_clicked();//matthew
+    void updateBatteryBar(int battery);//matthew
+
 public slots:
     void handle_updateLabelStyle(int index, const QString& color);
 
@@ -47,6 +53,8 @@ private:
     QWidget *sideBarWidget;
     QButtonGroup *sideBarButtons;
     QListWidget *historyWidget;
+    RaDoTechDevice* rDeviceWidget; //matthew
+    QList<QRadioButton*> bodyPoints; //matthew
     void setupSideBarButtons();
     void displayData();
     

@@ -29,6 +29,14 @@ AppWidget::AppWidget(QWidget *parent) :
 
     // User History - Nathan
     historyWidget = ui->historyList;
+
+    //Radotech Moveable device - Matthew
+    rDeviceWidget = ui->r_device;
+    connect(rDeviceWidget, &RaDoTechDevice::sensorMoved, this, &AppWidget::checkSkinContact);
+    bodyPoints = ui->scanBox->findChildren<QRadioButton*>();
+
+    //battery bar
+    connect(rDeviceWidget, &RaDoTechDevice::updateBattery,this, &AppWidget::updateBatteryBar);
 }
 
 AppWidget::~AppWidget()
@@ -77,6 +85,25 @@ void AppWidget::switchPage(int pageId)
     stackedWidget->setCurrentIndex(pageId);
 }
 
+void AppWidget::checkSkinContact(QPoint devicePos)
+{
+    //Collision logic
+    for (QRadioButton* button : bodyPoints) {
+        QRect buttonRect = button->geometry();
+        if (buttonRect.contains(devicePos)) {
+                button->setChecked(true);
+                //uncheck the other buttons
+                for (QRadioButton* otherButton : bodyPoints) {
+                    if (otherButton != button) {
+                        otherButton->setChecked(false);
+                    }
+                }
+                break;  // Stop checking once we've found an intersection
+            }
+        button->setChecked(false);
+        }
+}
+
 void AppWidget::viewScanner(){
     ui->scanBox->setVisible(true);
     ui->scanBox->setEnabled(true);
@@ -86,10 +113,16 @@ void AppWidget::viewScanner(){
 
 bool AppWidget::completeScan(){
     QList<QRadioButton*> radioButtons = ui->scanBox->findChildren<QRadioButton*>();
+    int battery = rDeviceWidget->getBatteryLevel();
+    if(battery<2){
+        QMessageBox::warning(this, "Invalid", "RaDoTech Device is low battery, please charge");
+        return false;
+    }
 
     for(QRadioButton* rb : radioButtons){
         if(rb->isChecked()){
             activeUser->addInfo(rb->objectName());
+            rDeviceWidget->setBatteryLevel(battery-2);
             return true;
         }
     }
@@ -184,5 +217,16 @@ void AppWidget::displayData(){
         }
 
 
+}
+
+
+void AppWidget::on_rechargeButton_clicked()
+{
+    rDeviceWidget->setBatteryLevel(100);
+}
+
+void AppWidget::updateBatteryBar(int battery)
+{
+    ui->batteryBar->setValue(battery);
 }
 

@@ -14,14 +14,16 @@ SOURCES += \
     appwidget.cpp \
     barchart.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    radotechdevice.cpp
 
 HEADERS += \
     Data.h \
     User.h \
     appwidget.h \
     barchart.h \
-    mainwindow.h
+    mainwindow.h \
+    radotechdevice.h
 
 FORMS += \
     appwidget.ui \
