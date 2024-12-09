@@ -113,10 +113,62 @@ void AppWidget::scanHands(){
         return;
     }
     activeUser->getRecentData()->scanHandsData();
+
+    // Simulate the scan happening overtime - nathan
+    QList<QLabel *> labels = {
+        ui->RH1, ui->RH2, ui->RH3, ui->RH4, ui->RH5, ui->RH6,
+        ui->LH1, ui->LH2, ui->LH3, ui->LH4, ui->LH5, ui->LH6
+    };
+
+    this->setEnabled(false);
+
+    QTimer *timer = new QTimer(this);
+    int currentIndex = 0;
+
+    connect(timer, &QTimer::timeout, this, [=]() mutable{
+    if (currentIndex < labels.size()) {
+               labels[currentIndex]->setStyleSheet("color: green;");
+               currentIndex++;
+           } else {
+               timer->stop();
+               timer->deleteLater();
+               this->setEnabled(true);
+           }
+    });
+
+    timer->start(250);
 }
 
 void AppWidget::scanFeet(){
+    if(ui->batteryBar->value() <= 0){
+        QMessageBox::warning(this, "Battery", "RaDoTech device is out of charge. Please recharge and try again.");
+        return;
+    }
     activeUser->getRecentData()->scanFeetData();
+
+    // Simulate the scan happening overtime - nathan
+    QList<QLabel *> labels = {
+        ui->RF1, ui->RF2, ui->RF3, ui->RF4, ui->RF5, ui->RF6,
+        ui->LF1, ui->LF2, ui->LF3, ui->LF4, ui->LF5, ui->LF6
+    };
+
+    this->setEnabled(false);
+
+    QTimer *timer = new QTimer(this);
+    int currentIndex = 0;
+
+    connect(timer, &QTimer::timeout, this, [=]() mutable{
+    if (currentIndex < labels.size()) {
+               labels[currentIndex]->setStyleSheet("color: green;");
+               currentIndex++;
+           } else {
+               timer->stop();
+               timer->deleteLater();
+               this->setEnabled(true);
+           }
+    });
+
+    timer->start(250);
 }
 
 
@@ -125,6 +177,20 @@ bool AppWidget::doneScan(){
         QMessageBox::warning(this, "Incomplete", "You did not scan all parts.");
         return false;
     }
+
+    QList<QLabel *> labels = {
+        ui->RF1, ui->RF2, ui->RF3, ui->RF4, ui->RF5, ui->RF6,
+        ui->LF1, ui->LF2, ui->LF3, ui->LF4, ui->LF5, ui->LF6,
+        ui->RH1, ui->RH2, ui->RH3, ui->RH4, ui->RH5, ui->RH6,
+        ui->LH1, ui->LH2, ui->LH3, ui->LH4, ui->LH5, ui->LH6
+    };
+
+
+    for(QLabel* l : labels){
+        l->setStyleSheet("color: red;");
+    }
+
+
     ui->scanBox->setVisible(false);
     ui->scanBox->setEnabled(false);
 
@@ -189,22 +255,32 @@ void AppWidget::displayData(){
             barChartWidget->show();
             barChartWidget->setFixedSize(621,601);
 
-            // TODO: this needs to display in the texts
-            // Assign H1 to H6
-            ui->h1Text->setPlainText(QString::number(currentViewingData->get("H1")));
-            ui->h2Text->setPlainText(QString::number(currentViewingData->get("H2")));
-            ui->h3Text->setPlainText(QString::number(currentViewingData->get("H3")));
-            ui->h4Text->setPlainText(QString::number(currentViewingData->get("H4")));
-            ui->h5Text->setPlainText(QString::number(currentViewingData->get("H5")));
-            ui->h6Text->setPlainText(QString::number(currentViewingData->get("H6")));
+            QList<QTextBrowser*> handTexts = {
+                ui->HL1txt, ui->HL2txt, ui->HL3txt, ui->HL4txt, ui->HL5txt, ui->HL6txt,
+                ui->HR1txt, ui->HR2txt, ui->HR3txt, ui->HR4txt, ui->HR5txt, ui->HR6txt
+            };
+            QList<QTextBrowser*> feetTexts = {
+                ui->FL1txt, ui->FL2txt, ui->FL3txt, ui->FL4txt, ui->FL5txt, ui->FL6txt,
+                ui->FR1txt, ui->FR2txt, ui->FR3txt, ui->FR4txt, ui->FR5txt, ui->FR6txt
+            };
 
-            // Assign F1 to F6
-            ui->f1Text->setPlainText(QString::number(currentViewingData->get("F1")));
-            ui->f2Text->setPlainText(QString::number(currentViewingData->get("F2")));
-            ui->f3Text->setPlainText(QString::number(currentViewingData->get("F3")));
-            ui->f4Text->setPlainText(QString::number(currentViewingData->get("F4")));
-            ui->f5Text->setPlainText(QString::number(currentViewingData->get("F5")));
-            ui->f6Text->setPlainText(QString::number(currentViewingData->get("F6")));
+            QVector<QVector<int>> h = currentViewingData->getH();
+            QVector<QVector<int>> f = currentViewingData->getF();
+
+            for (int i = 0; i < 6; ++i) {
+                // Set left-hand data
+                handTexts[i]->setText(QString::number(h[0][i]));
+
+                // Set right-hand data
+                handTexts[i + 6]->setText(QString::number(h[1][i]));
+
+                // Set left-foot data
+                feetTexts[i]->setText(QString::number(f[0][i]));
+
+                // Set right-foot data
+                feetTexts[i + 6]->setText(QString::number(f[1][i]));
+            }
+
 
         }
 }

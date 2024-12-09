@@ -15,9 +15,6 @@ public:
     Data();
     ~Data();
 
-    void set(QString part, int);
-    int get(QString part);
-
     bool getCompleted();
 
     QDateTime getCurrentDateTime() const;
@@ -40,10 +37,6 @@ private:
     QString symptoms[5];
 
     QDateTime currentDateTime;
-//    QBarSet *set0;
-//    QBarSeries *series;
-//    QChart *chart;
-//    QChartView *chartView;
 };
 
 #endif // DATA_H

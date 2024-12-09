@@ -31,7 +31,7 @@
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="homePage">
     <property name="styleSheet">
@@ -120,19 +120,6 @@ QPushButton:pressed {
 }
 </string>
     </property>
-    <widget class="QPushButton" name="startScanButton">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>520</y>
-       <width>161</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Start Scan</string>
-     </property>
-    </widget>
     <widget class="QGroupBox" name="scanBox">
      <property name="enabled">
       <bool>false</bool>
@@ -140,10 +127,18 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>100</y>
+       <y>90</y>
        <width>601</width>
        <height>411</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#scanBox{
+background-color:rgb(46, 46, 46);
+}
+
+
+</string>
      </property>
      <property name="title">
       <string>Scan</string>
@@ -151,7 +146,7 @@ QPushButton:pressed {
      <widget class="QPushButton" name="scanHandsButton">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>60</x>
         <y>70</y>
         <width>151</width>
         <height>41</height>
@@ -164,8 +159,8 @@ QPushButton:pressed {
      <widget class="QPushButton" name="doneButton">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>70</y>
+        <x>240</x>
+        <y>340</y>
         <width>111</width>
         <height>41</height>
        </rect>
@@ -177,7 +172,7 @@ QPushButton:pressed {
      <widget class="QPushButton" name="scanFeetButton">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>390</x>
         <y>70</y>
         <width>151</width>
         <height>41</height>
@@ -187,10 +182,10 @@ QPushButton:pressed {
        <string>Scan</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_35">
+     <widget class="QLabel" name="lblHandScan">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>60</x>
         <y>40</y>
         <width>151</width>
         <height>31</height>
@@ -206,10 +201,10 @@ QPushButton:pressed {
        <string>Hand Scan</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_36">
+     <widget class="QLabel" name="lblFeetScan">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>390</x>
         <y>40</y>
         <width>151</width>
         <height>31</height>
@@ -225,17 +220,598 @@ QPushButton:pressed {
        <string>Feet Scan</string>
       </property>
      </widget>
-     <widget class="QProgressBar" name="batteryBar">
+     <widget class="QLabel" name="label_37">
       <property name="geometry">
        <rect>
-        <x>460</x>
-        <y>20</y>
-        <width>118</width>
-        <height>23</height>
+        <x>80</x>
+        <y>120</y>
+        <width>41</width>
+        <height>17</height>
        </rect>
       </property>
+      <property name="text">
+       <string>Right</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>120</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Left</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>120</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Right</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>120</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Left</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RH1">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>150</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">QProgressBar{
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RH2">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>180</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RH3">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>210</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RH4">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>240</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H4</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RH5">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>270</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H5</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RH6">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>300</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H6</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LH5">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>270</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H5</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LH2">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>180</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LH4">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>240</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H4</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LH1">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>150</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LH3">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>210</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LH6">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>300</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>H6</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RF5">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>270</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F5</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RF2">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>180</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LF1">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>150</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LF2">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>180</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RF4">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>240</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F4</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LF4">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>240</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F4</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RF1">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>150</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LF5">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>270</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F5</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RF3">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>210</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LF3">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>210</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LF6">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>300</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F6</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RF6">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>300</y>
+        <width>41</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;
+</string>
+      </property>
+      <property name="text">
+       <string>F6</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QProgressBar" name="batteryBar">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>20</y>
+       <width>118</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QProgressBar{
     border: 1px solid black;
     background: transparent;
     border-radius: 8px;
@@ -249,11 +825,23 @@ QProgressBar::chunk{
     background-color: green;
     border-radius: 8px;
 }</string>
-      </property>
-      <property name="value">
-       <number>100</number>
-      </property>
-     </widget>
+     </property>
+     <property name="value">
+      <number>100</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="startScanButton">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>500</y>
+       <width>161</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start Scan</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="historyPage">
@@ -424,17 +1012,16 @@ QPushButton:pressed {
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color:white;
-</string>
+      <string notr="true"/>
      </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Tab 1</string>
+       <string>Data</string>
       </attribute>
-      <widget class="QTextBrowser" name="f1Text">
+      <widget class="QTextBrowser" name="FR1txt">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -444,7 +1031,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -479,7 +1067,7 @@ QPushButton:pressed {
         <string>F3</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f4Text_2">
+      <widget class="QTextBrowser" name="FL4txt">
        <property name="geometry">
         <rect>
          <x>450</x>
@@ -489,7 +1077,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -501,7 +1090,7 @@ QPushButton:pressed {
       <widget class="QLabel" name="label_16">
        <property name="geometry">
         <rect>
-         <x>370</x>
+         <x>480</x>
          <y>10</y>
          <width>62</width>
          <height>17</height>
@@ -511,7 +1100,7 @@ QPushButton:pressed {
         <string>Left</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h1Text">
+      <widget class="QTextBrowser" name="HR1txt">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -521,7 +1110,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -533,7 +1123,7 @@ QPushButton:pressed {
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>80</x>
+         <x>180</x>
          <y>10</y>
          <width>62</width>
          <height>17</height>
@@ -569,7 +1159,7 @@ QPushButton:pressed {
         <string>H5</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h6Text_2">
+      <widget class="QTextBrowser" name="HL6txt">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -579,7 +1169,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -588,7 +1179,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h6Text">
+      <widget class="QTextBrowser" name="HR6txt">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -598,7 +1189,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -607,7 +1199,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f5Text">
+      <widget class="QTextBrowser" name="FR5txt">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -617,7 +1209,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -626,7 +1219,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h4Text">
+      <widget class="QTextBrowser" name="HR4txt">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -636,7 +1229,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -658,7 +1252,7 @@ QPushButton:pressed {
         <string>H1</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f4Text">
+      <widget class="QTextBrowser" name="FR4txt">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -668,7 +1262,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -677,7 +1272,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f2Text">
+      <widget class="QTextBrowser" name="FR2txt">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -687,7 +1282,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -696,7 +1292,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f3Text">
+      <widget class="QTextBrowser" name="FR3txt">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -706,7 +1302,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -728,7 +1325,7 @@ QPushButton:pressed {
         <string>F4</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h2Text">
+      <widget class="QTextBrowser" name="HR2txt">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -738,7 +1335,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -895,7 +1493,7 @@ QPushButton:pressed {
         </item>
        </layout>
       </widget>
-      <widget class="QTextBrowser" name="h3Text_2">
+      <widget class="QTextBrowser" name="HL3txt">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -905,7 +1503,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -927,7 +1526,7 @@ QPushButton:pressed {
         <string>H2</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f6Text_2">
+      <widget class="QTextBrowser" name="FL6txt">
        <property name="geometry">
         <rect>
          <x>450</x>
@@ -937,7 +1536,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -946,7 +1546,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f3Text_2">
+      <widget class="QTextBrowser" name="FL3txt">
        <property name="geometry">
         <rect>
          <x>450</x>
@@ -956,7 +1556,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -965,7 +1566,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f1Text_2">
+      <widget class="QTextBrowser" name="FL1txt">
        <property name="geometry">
         <rect>
          <x>450</x>
@@ -975,7 +1576,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -984,7 +1586,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h4Text_2">
+      <widget class="QTextBrowser" name="HL4txt">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -994,7 +1596,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -1016,7 +1619,7 @@ QPushButton:pressed {
         <string>F1</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h2Text_2">
+      <widget class="QTextBrowser" name="HL2txt">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -1026,7 +1629,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -1038,7 +1642,7 @@ QPushButton:pressed {
       <widget class="QLabel" name="label_14">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>70</x>
          <y>10</y>
          <width>62</width>
          <height>17</height>
@@ -1048,7 +1652,7 @@ QPushButton:pressed {
         <string>Right</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h3Text">
+      <widget class="QTextBrowser" name="HR3txt">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -1058,7 +1662,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -1067,7 +1672,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h1Text_2">
+      <widget class="QTextBrowser" name="HL1txt">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -1077,13 +1682,22 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
        <property name="horizontalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_12">
@@ -1206,7 +1820,7 @@ QPushButton:pressed {
         <string>H4</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f6Text">
+      <widget class="QTextBrowser" name="FR6txt">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -1216,7 +1830,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -1225,7 +1840,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f5Text_2">
+      <widget class="QTextBrowser" name="FL5txt">
        <property name="geometry">
         <rect>
          <x>450</x>
@@ -1235,7 +1850,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -1244,7 +1860,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="f2Text_2">
+      <widget class="QTextBrowser" name="FL2txt">
        <property name="geometry">
         <rect>
          <x>450</x>
@@ -1254,7 +1870,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -1263,7 +1880,7 @@ QPushButton:pressed {
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h5Text_2">
+      <widget class="QTextBrowser" name="HL5txt">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -1273,7 +1890,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -1285,7 +1903,7 @@ QPushButton:pressed {
       <widget class="QLabel" name="label_15">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>370</x>
          <y>10</y>
          <width>62</width>
          <height>17</height>
@@ -1295,7 +1913,7 @@ QPushButton:pressed {
         <string>Right</string>
        </property>
       </widget>
-      <widget class="QTextBrowser" name="h5Text">
+      <widget class="QTextBrowser" name="HR5txt">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -1305,7 +1923,8 @@ QPushButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:white;</string>
+        <string notr="true">background-color:white;
+color:black;</string>
        </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -1317,8 +1936,27 @@ QPushButton:pressed {
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Tab 2</string>
+       <string>Graph</string>
       </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Recommendation</string>
+      </attribute>
+      <widget class="QTextBrowser" name="textBrowser">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>20</y>
+         <width>521</width>
+         <height>531</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:white;
+</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
