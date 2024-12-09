@@ -7,6 +7,7 @@
 #include <QStackedWidget>
 #include <QVBoxLayout>
 #include <QDateTime>
+#include <QTimer>
 #include <QListWidget>
 #include "User.h"
 #include "barchart.h"
@@ -27,6 +28,8 @@ public:
 private slots:
     void switchPage(int pageId);
     void setCurrentViewingData();
+    void decreaseBattery();
+    void chargeBattery();
     void viewScanner();
     //bool completeScan();
     bool doneScan();
@@ -44,6 +47,8 @@ private:
 
     User* activeUser = nullptr;
     Data* currentViewingData;
+
+    QTimer* batteryTimer;
 
     QLabel* findLabelByIndex(int index);
     QStackedWidget *stackedWidget;

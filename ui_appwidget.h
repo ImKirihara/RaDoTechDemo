@@ -16,6 +16,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
@@ -38,6 +39,7 @@ public:
     QPushButton *scanFeetButton;
     QLabel *label_35;
     QLabel *label_36;
+    QProgressBar *batteryBar;
     QWidget *historyPage;
     QListWidget *historyList;
     QPushButton *showDataButton;
@@ -114,6 +116,7 @@ public:
     QPushButton *historyButton;
     QPushButton *newPageButton;
     QSpacerItem *verticalSpacer;
+    QPushButton *chargeButton;
     QPushButton *signOutButton;
 
     void setupUi(QWidget *AppWidget)
@@ -244,6 +247,24 @@ public:
         label_36->setObjectName(QString::fromUtf8("label_36"));
         label_36->setGeometry(QRect(210, 40, 151, 31));
         label_36->setFont(font);
+        batteryBar = new QProgressBar(scanBox);
+        batteryBar->setObjectName(QString::fromUtf8("batteryBar"));
+        batteryBar->setGeometry(QRect(460, 20, 118, 23));
+        batteryBar->setStyleSheet(QString::fromUtf8("QProgressBar{\n"
+"    border: 1px solid black;\n"
+"    background: transparent;\n"
+"    border-radius: 8px;\n"
+"    text-align: center;\n"
+"    color: white;\n"
+"    font-size: 16px;\n"
+"    \n"
+"}\n"
+"\n"
+"QProgressBar::chunk{\n"
+"    background-color: green;\n"
+"    border-radius: 8px;\n"
+"}"));
+        batteryBar->setValue(100);
         stackedWidget->addWidget(homePage);
         historyPage = new QWidget();
         historyPage->setObjectName(QString::fromUtf8("historyPage"));
@@ -775,6 +796,11 @@ public:
 
         sidebarLayout->addItem(verticalSpacer);
 
+        chargeButton = new QPushButton(sideBar);
+        chargeButton->setObjectName(QString::fromUtf8("chargeButton"));
+
+        sidebarLayout->addWidget(chargeButton);
+
         signOutButton = new QPushButton(sideBar);
         signOutButton->setObjectName(QString::fromUtf8("signOutButton"));
 
@@ -840,6 +866,7 @@ public:
         measureButton->setText(QCoreApplication::translate("AppWidget", "Measure", nullptr));
         historyButton->setText(QCoreApplication::translate("AppWidget", "History", nullptr));
         newPageButton->setText(QCoreApplication::translate("AppWidget", "Data", nullptr));
+        chargeButton->setText(QCoreApplication::translate("AppWidget", "Charge Battery", nullptr));
         signOutButton->setText(QCoreApplication::translate("AppWidget", "Sign Out", nullptr));
     } // retranslateUi
 

@@ -11,6 +11,8 @@ AppWidget::AppWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    batteryTimer = new QTimer(this);
+
     stackedWidget = ui->stackedWidget;
     sideBarWidget = ui->sideBar;
 
@@ -24,6 +26,10 @@ AppWidget::AppWidget(QWidget *parent) :
     connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(doneScan()));
     connect(ui->showDataButton, SIGNAL(clicked()), this, SLOT(setCurrentViewingData()));
     connect(ui->signOutButton, &QPushButton::clicked, this, &AppWidget::signOutRequest);
+
+    // Battery - Mel
+    connect(ui->chargeButton, SIGNAL(clicked()), this, SLOT(chargeBattery()));
+    connect(batteryTimer, &QTimer::timeout, this, &AppWidget::decreaseBattery);
 
     //  Scan Data - Ellie
     connect(ui->scanHandsButton, SIGNAL(clicked()), this, SLOT(scanHands()));
@@ -80,6 +86,8 @@ void AppWidget::viewScanner(){
     ui->scanBox->setEnabled(true);
 
     activeUser->addData();
+
+    batteryTimer->start(1000);
 }
 
 //bool AppWidget::completeScan(){
@@ -100,6 +108,10 @@ void AppWidget::viewScanner(){
 // Assigns the data to the Array
 
 void AppWidget::scanHands(){
+    if(ui->batteryBar->value() <= 0){
+        QMessageBox::warning(this, "Battery", "RaDoTech device is out of charge. Please recharge and try again.");
+        return;
+    }
     activeUser->getRecentData()->scanHandsData();
 }
 
@@ -115,6 +127,8 @@ bool AppWidget::doneScan(){
     }
     ui->scanBox->setVisible(false);
     ui->scanBox->setEnabled(false);
+
+    batteryTimer->stop();
 
     // update history widget - Nathan
     historyWidget->clear();
@@ -193,7 +207,14 @@ void AppWidget::displayData(){
             ui->f6Text->setPlainText(QString::number(currentViewingData->get("F6")));
 
         }
+}
 
+void AppWidget::decreaseBattery(){
+    int currBattery = ui->batteryBar->value();
+    ui->batteryBar->setValue(currBattery - 1);
+}
 
+void AppWidget::chargeBattery(){
+    ui->batteryBar->setValue(100);
 }
 
