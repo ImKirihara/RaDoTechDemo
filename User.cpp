@@ -23,9 +23,9 @@ void User::addData(){
     recentData = d;
 }
 
-void User::addInfo(QString part){
-    recentData->set(part);
-}
+//void User::addInfo(QString part){
+//    recentData->set(part);
+//}
 
 QString User::getName(){
     return firstName + " " + lastName;

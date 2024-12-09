@@ -21,11 +21,13 @@ AppWidget::AppWidget(QWidget *parent) :
 
     // Scanner stuff - Mel
     connect(ui->startScanButton, SIGNAL(clicked()), this, SLOT(viewScanner()));
-    connect(ui->scanButton, SIGNAL(clicked()), this, SLOT(completeScan()));
     connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(doneScan()));
     connect(ui->showDataButton, SIGNAL(clicked()), this, SLOT(setCurrentViewingData()));
-
     connect(ui->signOutButton, &QPushButton::clicked, this, &AppWidget::signOutRequest);
+
+    //  Scan Data - Ellie
+    connect(ui->scanHandsButton, SIGNAL(clicked()), this, SLOT(scanHands()));
+    connect(ui->scanFeetButton, SIGNAL(clicked()), this, SLOT(scanFeet()));
 
     // User History - Nathan
     historyWidget = ui->historyList;
@@ -80,18 +82,31 @@ void AppWidget::viewScanner(){
     activeUser->addData();
 }
 
-bool AppWidget::completeScan(){
-    QList<QRadioButton*> radioButtons = ui->scanBox->findChildren<QRadioButton*>();
+//bool AppWidget::completeScan(){
+//    QList<QRadioButton*> radioButtons = ui->scanBox->findChildren<QRadioButton*>();
 
-    for(QRadioButton* rb : radioButtons){
-        if(rb->isChecked()){
-            activeUser->addInfo(rb->objectName());
-            return true;
-        }
-    }
-    QMessageBox::warning(this, "Invalid", "You did not select a body part");
-    return false;
+//    for(QRadioButton* rb : radioButtons){
+//        if(rb->isChecked()){
+//            activeUser->addInfo(rb->objectName());
+//            return true;
+//        }
+//    }
+//    QMessageBox::warning(this, "Invalid", "You did not select a body part");
+//    return false;
+//}
+
+// Scans For Data
+// Both H/F for left and Right
+// Assigns the data to the Array
+
+void AppWidget::scanHands(){
+    activeUser->getRecentData()->scanHandsData();
 }
+
+void AppWidget::scanFeet(){
+    activeUser->getRecentData()->scanFeetData();
+}
+
 
 bool AppWidget::doneScan(){
     if(!activeUser->getRecentData()->getCompleted()){

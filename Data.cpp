@@ -136,80 +136,123 @@ int Data::get(QString part){
     return -1;
 }
 
-void Data::set(QString part){
+void Data::set(QString part, int newInt){
     if(part == "H1"){
-        h[0][0] = getRandomNum();
+        h[0][0] = newInt;
     }
     if(part == "H2"){
-        h[0][1] = getRandomNum();
+        h[0][1] = newInt;
     }
     if(part == "H3"){
-        h[0][2] = getRandomNum();
+        h[0][2] = newInt;
     }
     if(part == "H4"){
-        h[0][3] = getRandomNum();
+        h[0][3] = newInt;
     }
     if(part == "H5"){
-        h[0][4] = getRandomNum();
+        h[0][4] = newInt;
     }
     if(part == "H6"){
-        h[0][5] = getRandomNum();
+        h[0][5] = newInt;
     }
     if(part == "F1"){
-        f[0][0] = getRandomNum();
+        f[0][0] = newInt;
     }
     if(part == "F2"){
-        f[0][1] = getRandomNum();
+        f[0][1] = newInt;
     }
     if(part == "F3"){
-        f[0][2] = getRandomNum();
+        f[0][2] = newInt;
     }
     if(part == "F4"){
-        f[0][3] = getRandomNum();
+        f[0][3] = newInt;
     }
     if(part == "F5"){
-        f[0][4] = getRandomNum();
+        f[0][4] = newInt;
     }
     if(part == "F6"){
-        f[0][5] = getRandomNum();
+        f[0][5] = newInt;
     }
     if(part == "H1_2"){
-        h[1][0] = getRandomNum();
+        h[1][0] = newInt;
     }
     if(part == "H2_2"){
-        h[1][1] = getRandomNum();
+        h[1][1] = newInt;
     }
     if(part == "H3_2"){
-        h[1][2] = getRandomNum();
+        h[1][2] = newInt;
     }
     if(part == "H4_2"){
-        h[1][3] = getRandomNum();
+        h[1][3] = newInt;
     }
     if(part == "H5_2"){
-        h[1][4] = getRandomNum();
+        h[1][4] = newInt;
     }
     if(part == "H6_2"){
-        h[1][5] = getRandomNum();
+        h[1][5] = newInt;
     }
     if(part == "F1_2"){
-        f[1][0] = getRandomNum();
+        f[1][0] = newInt;
     }
     if(part == "F2_2"){
-        f[1][1] = getRandomNum();
+        f[1][1] = newInt;
     }
     if(part == "F3_2"){
-        f[1][2] = getRandomNum();
+        f[1][2] = newInt;
     }
     if(part == "F4_2"){
-        f[1][3] = getRandomNum();
+        f[1][3] = newInt;
     }
     if(part == "F5_2"){
-        f[1][4] = getRandomNum();
+        f[1][4] = newInt;
     }
     if(part == "F6_2"){
-        f[1][5] = getRandomNum();
+        f[1][5] = newInt;
     }
 }
+
+// Scans For Data
+// Both H/F for left and Right
+// Assigns the data to the Array
+// - Ellie
+void Data::scanHandsData(){
+    for (int i = 0; i <= 5; ++i) {
+        //Sets The First Set of Random Data
+        int firstHand = getRandomNum(5, 80);
+        //Sets the First hands Data
+        h[0][i] =  firstHand;
+        //This is to calculate for Opposite Hand Should be +-0 - 5
+        int oppositeHand = getRandomNum(-5, 5) + firstHand;
+        //Limits it so that it doesnt go above 160
+        if (oppositeHand > 160){
+            oppositeHand = oppositeHand -  ((oppositeHand + firstHand) - 160);
+        }
+        h[1][i] = oppositeHand;
+    }
+}
+
+void Data::scanFeetData(){
+    for (int i = 0; i <= 5; ++i) {
+        //Sets The First Set of Random Data
+        int firstFoot = getRandomNum(3, 80);
+        //Sets the First hands Data
+        f[0][i] =  firstFoot;
+        //This is to calculate for Opposite Hand Should be +-0 - 5
+        int oppositeFoot = getRandomNum(-5, 5) + firstFoot;
+        //Limits it so that it doesnt go above 160
+        if (oppositeFoot > 160){
+            oppositeFoot = oppositeFoot - ((oppositeFoot + firstFoot) - 160);
+        } else if (oppositeFoot < 0){
+            oppositeFoot = 3;
+        }
+        f[1][i] = oppositeFoot;
+    }
+}
+
+// - Ellie
+
+
+
 
 bool Data::getCompleted(){
     if(h[0][0] == -1 || h[0][1] == -1 || h[0][2] == -1 || h[0][3] == -1 || h[0][4] == -1 || h[0][5] == -1 || f[0][0] == -1 || f[0][1] == -1 || f[0][2] == -1 || f[0][3] == -1 || f[0][4] == -1 || f[0][5] == -1){
@@ -218,12 +261,15 @@ bool Data::getCompleted(){
     return true;
 }
 
-int Data::getRandomNum(){
+//Takes in the Range you want it to be in between - Ellie
+int Data::getRandomNum(int r1, int r2){
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> distr(100, 900);
+    //Gets a Random Number for 1 Scan
+    // In between 5 and 80 as shown in Ryodoraku
+    // - Ellie
+    std::uniform_int_distribution<> distr(r1, r2);
 
     return distr(gen);
 }
-
 

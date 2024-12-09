@@ -28,10 +28,13 @@ private slots:
     void switchPage(int pageId);
     void setCurrentViewingData();
     void viewScanner();
-    bool completeScan();
+    //bool completeScan();
     bool doneScan();
 public slots:
     void handle_updateLabelStyle(int index, const QString& color);
+    //Scans Hands and Feet - Ellie
+    void scanHands();
+    void scanFeet();
 
 signals:
     void signOutRequest();

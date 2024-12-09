@@ -15,16 +15,19 @@ public:
     Data();
     ~Data();
 
-    void set(QString part);
+    void set(QString part, int);
     int get(QString part);
-
-    int getRandomNum();
 
     bool getCompleted();
 
     QDateTime getCurrentDateTime() const;
     const QVector<QVector<int>>& getH() const;
     const QVector<QVector<int>>& getF() const;
+
+    //Scans that will be used in the Main Window to get Data
+    void scanHandsData();
+    void scanFeetData();
+    int getRandomNum(int, int);
 
     void process();
 //    void barChart(); // remove

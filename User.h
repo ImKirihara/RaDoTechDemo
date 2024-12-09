@@ -30,7 +30,7 @@ public:
     ~User();
 
     void addData();
-    void addInfo(QString part);
+    //void addInfo(QString part);
 
     // getter functions
     QString getName();
