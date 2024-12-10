@@ -4,6 +4,7 @@
 bin/
 obj/
 out/
+*.o
 
 # Ignore IDE-specific files
 .vscode/

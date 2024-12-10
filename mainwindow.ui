@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Menu">
      <property name="styleSheet">
@@ -36,8 +36,7 @@
         stop: 0 rgba(255, 120, 0, 255),
         stop: 1 rgba(246, 97, 81, 255)
     );
-    border-radius: 15px;
-    padding: 40px 30px;
+
 }
 
 QLabel{
@@ -156,14 +155,68 @@ QPushButton:focus {
      </widget>
     </widget>
     <widget class="QWidget" name="CreateProfile">
-     <widget class="QGroupBox" name="groupBox_2">
+     <property name="styleSheet">
+      <string notr="true">QWidget#CreateProfile{
+background: qlineargradient(
+        spread: pad,
+        x1: 1, y1: 0.045, 
+        x2: 1, y2: 1, 
+        stop: 0 rgba(255, 120, 0, 255),
+        stop: 1 rgba(246, 97, 81, 255)
+    );
+	color:white;
+}
+
+#container{
+background-color: #2a2a2a;
+    border: 2px solid rgba(255, 120, 0, 255);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+QPushButton {
+    background: qlineargradient(
+        spread: pad, 
+        x1: 1, y1: 0.045, 
+        x2: 1, y2: 1, 
+        stop: 0 rgba(255, 120, 0, 255), 
+        stop: 1 rgba(246, 97, 81, 255)
+    );
+    color: white;
+    border: 2px solid rgb(46, 46, 46);
+    border-radius: 12px;
+    font-size: 18px;
+    padding: 6px 10px;
+}
+
+QPushButton:hover {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 120, 0, 180);
+}
+
+QPushButton:pressed {
+    background-color: rgba(255, 120, 0, 220);
+    background: rgba(255, 255, 255, 0.2);
+}</string>
+     </property>
+     <widget class="QGroupBox" name="container">
       <property name="geometry">
        <rect>
         <x>160</x>
         <y>30</y>
         <width>511</width>
-        <height>491</height>
+        <height>561</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+color: white;
+}
+
+QRadioButton{
+color:white;
+}</string>
       </property>
       <property name="title">
        <string/>
@@ -172,8 +225,8 @@ QPushButton:focus {
        <property name="geometry">
         <rect>
          <x>160</x>
-         <y>400</y>
-         <width>151</width>
+         <y>470</y>
+         <width>201</width>
          <height>51</height>
         </rect>
        </property>
@@ -184,10 +237,10 @@ QPushButton:focus {
       <widget class="QWidget" name="gridLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>40</y>
-         <width>381</width>
-         <height>340</height>
+         <x>20</x>
+         <y>20</y>
+         <width>471</width>
+         <height>441</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="userInfo">
@@ -371,19 +424,19 @@ QPushButton:focus {
         </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="Homebtn">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>83</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Home</string>
-       </property>
-      </widget>
+     </widget>
+     <widget class="QPushButton" name="Homebtn">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Home</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="loginProfile">
@@ -430,8 +483,7 @@ QPushButton {
     border: 2px solid rgb(46, 46, 46);
     border-radius: 12px;
     font-size: 18px;
-    padding: 12px 25px;
-    margin: 10px 0;
+    padding: 6px 10px;
 }
 
 QPushButton:hover {
@@ -491,9 +543,9 @@ QPushButton:focus {
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>310</y>
+         <y>330</y>
          <width>141</width>
-         <height>61</height>
+         <height>41</height>
         </rect>
        </property>
        <property name="text">
@@ -528,9 +580,9 @@ QPushButton:focus {
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>20</y>
+        <y>30</y>
         <width>111</width>
-        <height>61</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">

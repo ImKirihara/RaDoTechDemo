@@ -31,7 +31,7 @@
 }</string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="homePage">
     <property name="styleSheet">
@@ -1989,8 +1989,8 @@ QPushButton {
 }
 
 QPushButton:hover {
-    border: 1px solid rgba(255, 255, 255, 0.6); /* Light border on hover */
-    border-radius: 4px;                         /* Rounded edges for hover effect */
+    border: 1px solid rgba(255, 255, 255, 0.6); 
+    border-radius: 4px;                        
 }
 
 QPushButton:pressed {
@@ -2090,7 +2090,15 @@ text-align:center;
 background-color:rgb(184, 0, 0);
 border: 1px solid white;
 border-radius: 12px;
+}
 
+#deleteProfileBtn:hover {
+    border: 1px solid rgba(255, 255, 255, 0.6); 
+    border-radius: 4px;                        
+}
+
+QPushButton:pressed {
+    background: rgba(184,0,0, 0.2); /* Subtle background change on click */
 }</string>
       </property>
       <property name="text">
