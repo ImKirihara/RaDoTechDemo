@@ -32,7 +32,6 @@ MainWindow::MainWindow(QWidget *parent)
         changePage(ui->loginProfile);
     });
     connect(ui->enterButton, SIGNAL(clicked()), this, SLOT(loginUser()));
-
 }
 
 MainWindow::~MainWindow()

@@ -31,7 +31,6 @@ private slots:
     void decreaseBattery();
     void chargeBattery();
     void viewScanner();
-    //bool completeScan();
     bool doneScan();
     void on_deleteProfileClicked();
     void onSignoutButtonClicked();

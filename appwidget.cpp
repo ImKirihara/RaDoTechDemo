@@ -21,7 +21,7 @@ AppWidget::AppWidget(QWidget *parent) :
 
     setupSideBarButtons();
 
-    // Scanner stuff - Mel
+    // Scanner - Mel
     connect(ui->startScanButton, SIGNAL(clicked()), this, SLOT(viewScanner()));
     connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(doneScan()));
     connect(ui->showDataButton, SIGNAL(clicked()), this, SLOT(setCurrentViewingData()));
@@ -93,23 +93,6 @@ void AppWidget::viewScanner(){
 
     batteryTimer->start(1000);
 }
-
-//bool AppWidget::completeScan(){
-//    QList<QRadioButton*> radioButtons = ui->scanBox->findChildren<QRadioButton*>();
-
-//    for(QRadioButton* rb : radioButtons){
-//        if(rb->isChecked()){
-//            activeUser->addInfo(rb->objectName());
-//            return true;
-//        }
-//    }
-//    QMessageBox::warning(this, "Invalid", "You did not select a body part");
-//    return false;
-//}
-
-// Scans For Data
-// Both H/F for left and Right
-// Assigns the data to the Array
 
 void AppWidget::scanHands(){
     if(ui->batteryBar->value() <= 0){
@@ -309,6 +292,10 @@ void AppWidget::displayData(){
 void AppWidget::decreaseBattery(){
     int currBattery = ui->batteryBar->value();
     ui->batteryBar->setValue(currBattery - 1);
+
+    if(ui->batteryBar->value() == 10){
+        QMessageBox::warning(this, "Low Battery", "RaDoTech device is low on battery. Consider charging it.");
+    }
 }
 
 void AppWidget::chargeBattery(){
