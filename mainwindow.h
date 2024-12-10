@@ -22,6 +22,8 @@ public:
     QString getGender();
 
 private:
+    int MAX_USERS;
+    QList<QPushButton* > homeButtons;
     Ui::MainWindow *ui;
     QList<User*> profiles;
 
@@ -31,7 +33,9 @@ public slots:
     bool createUser();
     bool loginUser();
     void changePage(QWidget *page);
-    void signOut();
+    void handle_DeleteProfileRequest(User* user);
+    void goHome();
+    void handle_SignOutRequest();
 
 };
 #endif // MAINWINDOW_H

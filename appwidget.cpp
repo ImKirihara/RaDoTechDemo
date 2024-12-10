@@ -25,7 +25,7 @@ AppWidget::AppWidget(QWidget *parent) :
     connect(ui->startScanButton, SIGNAL(clicked()), this, SLOT(viewScanner()));
     connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(doneScan()));
     connect(ui->showDataButton, SIGNAL(clicked()), this, SLOT(setCurrentViewingData()));
-    connect(ui->signOutButton, &QPushButton::clicked, this, &AppWidget::signOutRequest);
+    connect(ui->signOutButton, &QPushButton::clicked, this, &AppWidget::onSignoutButtonClicked);
 
     // Battery - Mel
     connect(ui->chargeButton, SIGNAL(clicked()), this, SLOT(chargeBattery()));
@@ -37,6 +37,10 @@ AppWidget::AppWidget(QWidget *parent) :
 
     // User History - Nathan
     historyWidget = ui->historyList;
+    historyWidget->clear();
+
+    //delete profile - nathan
+    connect(ui->deleteProfileBtn, &QPushButton::clicked, this, &AppWidget::on_deleteProfileClicked);
 }
 
 AppWidget::~AppWidget()
@@ -215,8 +219,25 @@ bool AppWidget::doneScan(){
     return true;
 }
 
+void AppWidget::onSignoutButtonClicked(){
+    emit signOutRequest();
+}
+void AppWidget::on_deleteProfileClicked(){
+    emit deleteProfileRequested(activeUser);
+}
+
 void AppWidget::setActiveUser(User* user){
     activeUser = user;
+
+    // update history widget - Nathan
+    historyWidget->clear();
+    for (int i = 0; i < activeUser->getHistory()->size(); ++i) {
+        Data* data = activeUser->getHistory()->at(i);
+        QString displayText = QString("Entry %1: %2")
+                              .arg(i + 1)
+                              .arg(data->getCurrentDateTime().toString("yyyy-MM-dd HH:mm:ss"));
+        historyWidget->addItem(displayText);
+    }
 
 }
 

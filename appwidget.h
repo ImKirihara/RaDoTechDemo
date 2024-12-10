@@ -33,6 +33,8 @@ private slots:
     void viewScanner();
     //bool completeScan();
     bool doneScan();
+    void on_deleteProfileClicked();
+    void onSignoutButtonClicked();
 public slots:
     void handle_updateLabelStyle(int index, const QString& color);
     //Scans Hands and Feet - Ellie
@@ -41,6 +43,7 @@ public slots:
 
 signals:
     void signOutRequest();
+    void deleteProfileRequested(User* user);
 
 private:
     Ui::AppWidget *ui;

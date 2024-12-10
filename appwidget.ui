@@ -2081,6 +2081,23 @@ QPushButton:pressed {
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="deleteProfileBtn">
+      <property name="styleSheet">
+       <string notr="true">#deleteProfileBtn{
+font-weight: bold;
+text-align:center;
+background-color:rgb(184, 0, 0);
+border: 1px solid white;
+border-radius: 12px;
+
+}</string>
+      </property>
+      <property name="text">
+       <string>Delete Profile</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>

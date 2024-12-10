@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Menu">
      <property name="styleSheet">
@@ -371,6 +371,19 @@ QPushButton:focus {
         </item>
        </layout>
       </widget>
+      <widget class="QPushButton" name="Homebtn">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>83</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Home</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="loginProfile">
@@ -414,7 +427,7 @@ QPushButton {
         stop: 1 rgba(246, 97, 81, 255)
     );
     color: white;
-    border: none;
+    border: 2px solid rgb(46, 46, 46);
     border-radius: 12px;
     font-size: 18px;
     padding: 12px 25px;
@@ -510,6 +523,19 @@ QPushButton:focus {
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="Homebtn_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>111</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Home</string>
+      </property>
      </widget>
     </widget>
    </widget>

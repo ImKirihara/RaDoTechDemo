@@ -4,13 +4,16 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
+    , MAX_USERS(5)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    // Create the AppWidget instance (the new home screen) - Nathan
-    appWidget = new AppWidget(this);
-    ui->StackedWidget->addWidget(appWidget);
+    //added home buttons - Nathan
+    homeButtons.append({ui->Homebtn, ui->Homebtn_2});
+    for(QPushButton* button: homeButtons){
+        connect(button, &QPushButton::clicked, this, &MainWindow::goHome);
+    }
 
     // Tester Login Profile - Mel
     profiles.append(new User("Login", "Tester", "Female", "Canada", "t", "16131234567", "t", QDate::currentDate(), 70, 150));
@@ -29,9 +32,6 @@ MainWindow::MainWindow(QWidget *parent)
         changePage(ui->loginProfile);
     });
     connect(ui->enterButton, SIGNAL(clicked()), this, SLOT(loginUser()));
-
-    connect(appWidget, &AppWidget::signOutRequest, this, &MainWindow::signOut);
-
 
 }
 
@@ -64,6 +64,16 @@ bool MainWindow::createUser(){
     QDate b;
     int w, h;
     bool validInput = false;
+
+    if(profiles.size() == MAX_USERS) {
+        QMessageBox::warning(
+            this,
+            "Too Many Users",
+            QString("You cannot create more than %1 users. Please sign into an existing one and delete it before making a new user!")
+                .arg(QString::number(MAX_USERS))
+        );
+        return false;
+    }
 
     while(!validInput){
         f = ui->firstNameText->text();
@@ -100,8 +110,13 @@ bool MainWindow::createUser(){
 
     User* u = new User(f, l, g, c, e, p, pass, b, w, h);
     profiles.append(u);
-    appWidget->setActiveUser(u);
 
+    // Create the AppWidget instance (the new home screen) - Nathan
+    appWidget = new AppWidget(this);
+    connect(appWidget, &AppWidget::signOutRequest, this, &MainWindow::handle_SignOutRequest);
+    connect(appWidget, &AppWidget::deleteProfileRequested, this, &MainWindow::handle_DeleteProfileRequest);
+    ui->StackedWidget->addWidget(appWidget);
+    appWidget->setActiveUser(u);
     changePage(appWidget);
 
     return true;
@@ -115,8 +130,14 @@ bool MainWindow::loginUser(){
     for(int i = 0; i < profiles.size(); i++){
         if(enteredEmail == profiles[i]->getEmail()){
             if(enteredPassword == profiles[i]->getPassword()){
-                changePage(appWidget);
+
+                // Create the AppWidget instance (the new home screen) - Nathan
+                appWidget = new AppWidget(this);
+                connect(appWidget, &AppWidget::signOutRequest, this, &MainWindow::handle_SignOutRequest);
+                connect(appWidget, &AppWidget::deleteProfileRequested, this, &MainWindow::handle_DeleteProfileRequest);
+                ui->StackedWidget->addWidget(appWidget);
                 appWidget->setActiveUser(profiles[i]);
+                changePage(appWidget);
                 return true;
             }else{
                 QMessageBox::warning(this, "Invalid Password", "Incorrect Password");
@@ -127,9 +148,28 @@ bool MainWindow::loginUser(){
     QMessageBox::warning(this, "Invalid Email", "Incorrect Email or Password");
     return false;
 }
-
-void MainWindow::signOut(){
-    appWidget->setActiveUser(nullptr);
+void MainWindow::goHome(){
     changePage(ui->Menu);
+}
+//handle deleting a profile - Nathan
+void MainWindow::handle_DeleteProfileRequest(User* user) {
+    if (user == nullptr) {
+        return;
+        qDebug() << "cannot delete user";
+    }
+
+    profiles.removeAll(user);
+    QMessageBox::information(this, "Profile Deleted", QString("The profile %1 has been deleted successfully.").arg(user->getName()));
+
+    handle_SignOutRequest();
+}
+
+void MainWindow::handle_SignOutRequest(){
+if (appWidget) {
+        changePage(ui->Menu);
+        ui->StackedWidget->removeWidget(appWidget);
+
+        appWidget = nullptr;
+    }
 }
 
