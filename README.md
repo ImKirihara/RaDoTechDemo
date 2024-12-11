@@ -36,6 +36,16 @@
 
 ### Diagrams 
 - Diagrams are Located in the Diagram Folder
+- RaDoTech Health Monitoring Device -> scan_scenario.png
+- Creating a new RaDoTech Profile -> signup_scenario.png 
+- Charge RaDoTech device -> lowbattery_scenario.png
+- View Scan History ->
+- stateDiagram.png
+- comp3004_project_classdiagram.png 
+- noContact_scenario.png 
+
+##Traceability Matrix
+- comp3004_traceabilityMatrix.pdf
 
 ### Files Included
 - appwidget.cpp
