@@ -4,7 +4,7 @@
 
 ### Bahir Salami 101046974
 - Designed and implemented diagrams.
-- Focused on graphing user data to present insights effectively.
+- Focused on Data Visualization
 - Designed the Traceability Matrix 
 
 ### Ellie Molina 101272342
@@ -39,7 +39,6 @@
 - RaDoTech Health Monitoring Device -> scan_scenario.png
 - Creating a new RaDoTech Profile -> signup_scenario.png 
 - Charge RaDoTech device -> lowbattery_scenario.png
-- View Scan History ->
 - stateDiagram.png
 - comp3004_project_classdiagram.png 
 - noContact_scenario.png 
