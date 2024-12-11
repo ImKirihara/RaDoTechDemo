@@ -17,9 +17,9 @@ BarChart::BarChart(Data* data, QWidget *parent) : QWidget(parent)
           << hData[0][4] << hData[0][5] << fData[0][0] << fData[0][2]
           << fData[0][2] << fData[0][3] << fData[0][4] << fData[0][5];
 
-    *set1 << fData[1][0] << fData[1][1] << fData[1][2] << fData[1][3]
-          << fData[1][4] << fData[1][5] << hData[1][0] << hData[1][2]
-          << hData[1][2] << hData[1][3] << hData[1][4] << hData[1][5];
+    *set1 << hData[1][0] << hData[1][1] << hData[1][2] << hData[1][3]
+          << hData[1][4] << hData[1][5] << fData[1][0] << fData[1][2]
+          << fData[1][2] << fData[1][3] << fData[1][4] << fData[1][5];
 
     // Create the series and append the data sets
     series = new QBarSeries();
