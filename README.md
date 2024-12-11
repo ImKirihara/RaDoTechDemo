@@ -31,6 +31,9 @@
 - Before Running Run Command sudo apt install libqt5charts5-dev inside the directory 
 - If this does not work Install QtCharts in order to run the code
 
+### Use Cases
+- Use Cases are Located in RaDoTech Use Cases.pdf
+
 ### Diagrams 
 - Diagrams are Located in the Diagram Folder
 
