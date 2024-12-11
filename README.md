@@ -1,6 +1,6 @@
 ## Team Members and Contributions
 
-### Youtube Video
+### Youtube Video: https://youtu.be/z-98eDE-FmM
 
 ### Bahir Salami 101046974
 - Designed and implemented diagrams.
